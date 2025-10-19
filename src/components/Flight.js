@@ -20,7 +20,7 @@ const Flights = () => {
   };
 
   return (
-    <section style={{ padding: "2rem", color: "#fff", maxWidth: "600px", margin: "auto" }}>
+    <section style={{ padding: "6rem", color: "#fff", maxWidth: "600px", margin: "auto" }}>
       <h1>Search Flights</h1>
       <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
         <input
