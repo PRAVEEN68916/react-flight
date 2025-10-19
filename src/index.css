@@ -94,5 +94,14 @@ a:hover {
   backdrop-filter: blur(10px);
 }
 
+footer{
+  footer a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
 
+footer a:hover {
+  color: #ffc107;
+}
+}
 
