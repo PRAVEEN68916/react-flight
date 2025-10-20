@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <>
       <section style={{ padding: "3rem", color: "#fff", maxWidth: "900px", margin: "auto" }}>
-        <h1 style={{ marginTop: "70px" }} >Welcome to SkyBook ✈️</h1>
+        <h1 style={{ marginTop: "70px",textAlign: "start", marginLeft:"-50px",fontWeight:"bold",fontFamily: "Times New Roman" }} >Welcome to SkyBook ✈️</h1>
         <p>
           SkyBook makes booking your next flight fast, easy, and affordable. Find the best deals from trusted airlines worldwide.
         </p>

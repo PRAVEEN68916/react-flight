@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './components/Login';
 import Signin from './components/Signin';
 import Contact from './components/Contact';
+import Tickets from './components/Tickets';
 
 
 
@@ -25,6 +26,7 @@ function App() {
             <Route path='/login'element={<Login />} />
             <Route path='/Signin' element={<Signin />} /> 
             <Route path='/contact' element={<Contact />} />
+            <Route path='/tickets'element={<Tickets/>}/>
         </Routes>
       </BrowserRouter>
      

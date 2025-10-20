@@ -28,7 +28,7 @@ body {
 }
 .container{
   height:66vh;
-  width:50%;
+  width:70%;
   display:flex;
   flext-direction:column;
   align-items:center;
@@ -39,7 +39,7 @@ body {
   border:2px solid white;
   border-radius:25px;
   margin-top:89px;
-  margin-left:80%;
+  margin-left:70%;
 }
 // .hm{
 //   display:flex;

@@ -5,7 +5,7 @@ function Header() {
 
   return (
     <div>
-       <nav className="navbar">
+       <nav className="navbar" style={{ position: 'fixed' }}>
       <div className="navbar-logo">✈️ SkyBook</div>
 
       <ul className="navbar-links">
@@ -15,6 +15,8 @@ function Header() {
         <li><Link to="/signin">Sign In</Link></li>
         <li><Link to="/login">Login</Link></li>
         <li><Link to="/contact">Contact</Link></li>
+        <li><Link to="/tickets">Tickets</Link></li>
+      
       </ul>
     </nav>
     </div>
