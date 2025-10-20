@@ -85,5 +85,4 @@ const Flights = () => {
     </section>
   );
 };
-
 export default Flights;

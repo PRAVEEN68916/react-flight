@@ -2,7 +2,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <section className="bg-whitepy-5 px-6 md:px-16 lg:px-32" style={{ padding: "10rem", color: "#000", maxWidth: "900px", margin: "auto" }}>
+    <section className="bg-whitepy-5 px-6 md:px-16 lg:px-32" style={{ padding: "10rem", color: "#f8f2f2ff", maxWidth: "900px", margin: "auto" }}>
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-3xl font-bold text-blue-700 mb-4">
           ✈️ About Our Flight Service
@@ -14,7 +14,7 @@ const About = () => {
           real-time schedules, and enjoy a smooth booking experience.
         </p>
 
-        <p className="text-gray-700 text-lg leading-relaxed mb-6">
+        <p className="text-white-700 text-lg leading-relaxed mb-6">
           With user-friendly search options and live flight updates, SkyFly is
           designed to make air travel planning faster, smarter, and stress-free.
           Whether you’re a frequent flyer or planning your first trip, our goal
@@ -22,10 +22,10 @@ const About = () => {
         </p>
 
         <div className="bg-blue-50 border border-blue-200 p-6 rounded-xl shadow-sm">
-          <h3 className="text-xl font-semibold text-blue-600 mb-2">
+          <h3 className="text-xl font-semibold text-white-600 mb-2">
             🌍 Why Choose Us?
           </h3>
-          <ul className="text-left text-gray-700 space-y-2">
+          <ul className="text-left text-white-700 space-y-2">
             <li>✅ Compare flights from multiple airlines instantly</li>
             <li>✅ Get real-time flight status and updates</li>
             <li>✅ Easy online booking and cancellation</li>

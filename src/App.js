@@ -8,7 +8,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './components/Login';
 import Signin from './components/Signin';
 import Contact from './components/Contact';
-import Footer from './components/Footer';
+
 
 
 
@@ -26,7 +26,6 @@ function App() {
             <Route path='/Signin' element={<Signin />} /> 
             <Route path='/contact' element={<Contact />} />
         </Routes>
-           <Footer />
       </BrowserRouter>
      
     </div>
