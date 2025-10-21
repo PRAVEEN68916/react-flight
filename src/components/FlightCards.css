@@ -1,0 +1,26 @@
+.flight-card {
+  border: none;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.flight-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.airline-logo {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #007bff, #00bfff);
+  border: none;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(90deg, #0066cc, #0099cc);
+}
+

@@ -1,5 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import FlightCards from './FlightCards';  
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -70,6 +72,9 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      <FlightCards />
+      
     </>
   );
 };

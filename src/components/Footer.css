@@ -1,7 +1,7 @@
 .footer {
   background-color: #080f15;
   color: #ffffff;
-  padding: 30px 20px;
+  padding: 20px;
   font-family: 'Segoe UI', sans-serif;
   position: relative;
 }
@@ -9,8 +9,8 @@
 .footer-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: left;
+  text-align: left;
 }
 
 .footer-logo span {
@@ -20,7 +20,8 @@
 }
 
 .footer-links {
-  margin: 15px 0;
+  margin: 15px;
+  margin-bottom: 25px;
 }
 
 .footer-links a {
@@ -39,10 +40,36 @@
   font-size: 1.2rem;
   color: #ffffff;
   text-decoration: none;
-}r
+  text-align: center;
+  align-items: center;
+}
 
-.footer-copy {
-  top: 20%;
+r .footer-copy {
+  margin-top: 20%;
   font-size: 0.4rem;
   color: #cccccc;
+  text-align: center;
+  align-items: center;
+}
+
+.footer-copy p {
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .footer-container {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .footer-links {
+    margin: 0 20px;
+  }
+}
+@media (min-width: 1200px) {
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 }
