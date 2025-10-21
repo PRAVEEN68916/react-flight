@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./BookingFlight.css";
 
 const BookingFlight = () => {
   const [name, setName] = useState("");
@@ -115,7 +116,7 @@ return (
                 type="number"
                 className="form-control"
                 min="1"
-                max="6"
+                max="15"
                 value={passengers}
                 onChange={(e) => setPassengers(e.target.value)}
                 required

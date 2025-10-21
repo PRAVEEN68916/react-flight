@@ -102,26 +102,3 @@ footer a {
 footer a:hover {
   color: #ffc107;
 }
-
-/* tickets page style
-body {
-  background: linear-gradient(120deg, #e3f2fd, #bbdefb);
-  font-family: "Poppins", sans-serif;
-}
-
-.card {
-  border-radius: 1rem;
-}
-
-.btn-primary {
-  background: linear-gradient(45deg, #007bff, #00bcd4);
-  border: none;
-}
-
-.btn-primary:hover {
-  background: linear-gradient(45deg, #0056b3, #008c9e);
-}
-
-h2 {
-  letter-spacing: 0.5px;
-} */

@@ -8,9 +8,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './components/Login';
 import Signin from './components/Signin';
 import Contact from './components/Contact';
-import Tickets from './components/Tickets';
-
-
+import BookingFlight from './components/BookingFlight';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -26,8 +25,9 @@ function App() {
             <Route path='/login'element={<Login />} />
             <Route path='/Signin' element={<Signin />} /> 
             <Route path='/contact' element={<Contact />} />
-            <Route path='/tickets'element={<Tickets/>}/>
+            <Route path='/bookingflight'element={<BookingFlight/>}/>
         </Routes>
+        <Footer />
       </BrowserRouter>
      
     </div>

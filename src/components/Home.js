@@ -5,10 +5,10 @@ const Home = () => {
   const navigate = useNavigate();
   return (
     <>
-      <section style={{ padding: "3rem", color: "#fff", maxWidth: "900px", margin: "auto" }}>
-        <h1 style={{ marginTop: "70px",textAlign: "start", marginLeft:"-50px",fontWeight:"bold",fontFamily: "Times New Roman" }} >Welcome to SkyBook ✈️</h1>
-        <p>
-          SkyBook makes booking your next flight fast, easy, and affordable. Find the best deals from trusted airlines worldwide.
+      <section style={{ padding: "3rem", color: "#fff", maxWidth: "900px", margin: "40px" }}>
+        <h1 style={{ marginTop: "70px",textAlign: "left",alignItems:"left",justifyContent:"left",paddingLeft:"-20%",fontWeight:"bold",fontFamily: "Times New Roman",fontSize:"4.5rem" }} >Welcome to SkyBook ✈️</h1>
+        <p style={{textAlign:"left", fontSize: "1.3rem", marginTop: "1rem", fontFamily: "Arial, sans-serif", color: "#e0e0e0" }}>
+          SkyBook makes booking your next flight fast, easy, and affordable.<br/> Find the best deals from trusted airlines worldwide.
         </p>
         <button onClick={() => navigate('/flights')}
           style={{
@@ -20,25 +20,27 @@ const Home = () => {
             fontWeight: "bold",
             cursor: "pointer",
             marginTop: "1rem",
-            boxShadow: "0 4px 15px rgba(0, 234, 255, 0.4)"
+            boxShadow: "0 4px 15px rgba(0, 234, 255, 0.4)",
+            marginRight: "77%",
+            top: "50px"
           }}
         >
           Search Flights
         </button>
         <div style={{ marginTop: "3rem" }}>
-          <h2>Why Choose SkyBook?</h2>
-          <ul style={{ listStyleType: "none", paddingLeft: 0 }}>
+          <h2 style={{fontSize:"4rem"}}>Why Choose SkyBook?</h2>
+          <ul style={{ listStyleType: "none", paddingLeft: 0,fontSize:"1.3rem",alignItems:"left" }}>
             <li>🛫 Best prices guaranteed</li>
             <li>⏰ 24/7 customer support</li>
             <li>📱 Easy mobile booking</li>
-            <li>✅ Secure and reliable</li>
+            <li>✅ Secure and reliable  </li>
           </ul>
         </div>
       </section>
 
       <section className="bg-whitepy-5 px-6 md:px-16 lg:px-32" style={{ padding: "10rem", color: "#f1eeeeff", maxWidth: "900px", margin: "auto" }}>
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-blue-700 mb-4">
+          <h2 className="text-3xl font-bold text-blue-700 mb-4 fs-1">
             ✈️ About Our Flight Service
           </h2>
           <p className="text-gray-700 text-lg leading-relaxed mb-6">
