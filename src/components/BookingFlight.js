@@ -28,7 +28,7 @@ const BookingFlight = () => {
 
 return (
   <>
-  <div className="container mt-5 mb-5">
+  <div className="container mt-5 mb-5 containers">
       <div className="text-center mb-4">
         <h2 className="fw-bold text-primary">✈️ Flight Ticket Booking</h2>
         <p className="text-secondary">

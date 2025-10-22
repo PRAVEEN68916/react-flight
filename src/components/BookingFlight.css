@@ -1,7 +1,7 @@
 /* ====== BookingFlight.css ====== */
 
 /* Background gradient for the page */
-.container {
+.containers {
   background: linear-gradient(135deg, #e3f2fd, #fff);
   border-radius: 12px;
   padding: 40px 30px;

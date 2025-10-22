@@ -20,7 +20,7 @@ function App() {
         <Header />
         <div style={{ paddingTop: "80px" }}></div>
         <Routes>
-            <Route path='/home' element={<Home />} />
+            <Route path='/' element={<Home />} />
             <Route path='/about' element={<About />} />
             <Route path='/flights' element={<Flights />} />
             <Route path='/login'element={<Login />} />

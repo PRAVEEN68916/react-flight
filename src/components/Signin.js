@@ -13,8 +13,9 @@ const Signin = () => {
 
   return (
     <section style={{ padding: "6rem",marginTop:"100px", color: "#fff", maxWidth: "500px", margin: "auto" }}>
-      <h1>Sign In</h1>
-      <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+     
+      <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1rem", border:"5px solid Black",borderRadius:"10px" }}>
+         <h1>Sign In</h1>
         <input
           type="email"
           name="email"
@@ -48,10 +49,11 @@ const Signin = () => {
         >
           Sign In
         </button>
-      </form>
-      <p style={{ marginTop: "1rem" }}>
+        <p style={{ marginTop: "1rem" }}>
         Forgot Password? <a href="#!" style={{ color: "#00eaff" }}>Reset here</a>
       </p>
+      </form>
+      
     </section>
   );
 };

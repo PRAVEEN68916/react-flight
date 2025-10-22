@@ -1,36 +1,28 @@
-import React from 'react';
-import './Footer.css'; // We'll add styles next
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 const Footer = () => {
-    return (
-        <footer className="footer">
-            <div className="footer-container">
-                <div className="footer-logo">
-                    ✈️ <span>Flight</span>
-                </div>
+  return (
+    <footer className="bg-dark text-light text-center py-4 bottom-0">
+      <div className="container">
+        <h5 className="text-warning mb-3">✈️ SkyBook</h5>
+        <p className="mb-2">
+          Your trusted partner for finding the best flight deals worldwide.
+        </p>
 
-                <div className="footer-links ">
-                    <ul>
-                        <li><a className="ms-md-3 mb-lg-5" href="/home">Home</a><br /></li>
-                        <li><a className="ms-md-3 mb-lg-5" href="/flights">flights</a><br /></li>
-                        <li><a className="ms-md-3 mb-lg-5" href="/about">About Us</a><br /></li>
-                        <li><a className="ms-md-3 mb-lg-5" href="/bookingflight">BookingFlight</a><br /></li>
-                        <li><a className="ms-md-3 mb-lg-5" href="/contact">Contact Us</a><br /></li>
-                    </ul>
-                </div>
+        <div className="mb-3">
+          <a  href="https://www.google.com/search?q=facebook&oq=facebo&gs_lcrp=EgZjaHJvbWUqFQgAEAAYQxiDARjjAhixAxiABBiKBTIVCAAQABhDGIMBGOMCGLEDGIAEGIoFMhgIARAuGEMYgwEYxwEYsQMY0QMYgAQYigUyDQgCEAAYkQIYgAQYigUyEwgDEAAYgwEYkQIYsQMYgAQYigUyEggEEAAYQxiDARixAxiABBiKBTIGCAUQRRg5MgwIBhAAGEMYgAQYigUyBggHEAUYQNIBCDMyNjNqMGo3qAIIsAIB8QWuQtCL_CszBw&sourceid=chrome&ie=UTF-8" className="text-light mx-2"><i className="bi bi-facebook"></i></a>
+          <a href="#" className="text-light mx-2"><i className="bi bi-twitter"></i></a>
+          <a href="https://www.instagram.com/accounts/login/?hl=en" className="text-light mx-2"><i className="bi bi-instagram"></i></a>
+        </div>
 
-                <div className="footer-social mb-4">
-                    <a href="https://facebook.com">🌐</a>
-                    <a href="https://instagram.com" target="_blank" rel="noreferrer">📸</a>
-                    <a href="https://twitter.com" target="_blank" rel="noreferrer">🐦</a>
-                </div>
-
-                <div className="footer-copy">
-                    © {new Date().getFullYear()} FlightConcept. All rights reserved.
-                </div>
-            </div>
-        </footer>
-    );
+        <p className="mb-0">
+          © {new Date().getFullYear()} FlyAway. All Rights Reserved.
+        </p>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;

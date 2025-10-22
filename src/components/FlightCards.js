@@ -38,7 +38,7 @@ const FlightCards = () => {
 
   return (
     <div className="container mt-5">
-      <h2 className="text-center mb-4 fw-bold">Available Flights</h2>
+      <h2 className="text-start mb-4 fw-bold text-info">Available Flights</h2>
       <div className="row">
         {flights.map((flight) => (
           <div key={flight.id} className="col-md-4 mb-4">

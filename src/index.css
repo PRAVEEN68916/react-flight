@@ -81,12 +81,12 @@ body {
   min-height: 100vh;
   font-family: "Poppins", sans-serif;
 }
-a{
+/* a{
   box-shadow: 0 2px 10px rgba(192, 219, 231, 0.5);
   border-radius: 8px;
   padding: 8px 16px;
   color: #ffffff;
-}
+} */
 a:hover {
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 20px rgba(192, 219, 231, 0.7);
