@@ -1,0 +1,44 @@
+/* Background gradient */
+.login-wrapper {
+  min-height: 100vh;
+  /* background: linear-gradient(135deg, #6dd5ed, #2193b0); */
+  font-family: "Poppins", sans-serif;
+}
+
+/* Card style */
+.login-card {
+  width: 380px;
+  border-radius: 15px;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.login-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Inputs */
+.form-control {
+  border-radius: 10px;
+  border: 1px solid #ced4da;
+  transition: all 0.3s;
+}
+
+.form-control:focus {
+  border-color: #2193b0;
+  box-shadow: 0 0 6px rgba(33, 147, 176, 0.4);
+}
+
+/* Button */
+.btn-primary {
+  background: linear-gradient(90deg, #2193b0, #6dd5ed);
+  border: none;
+  border-radius: 10px;
+  transition: transform 0.2s;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #1b7f95, #56c6e2);
+}

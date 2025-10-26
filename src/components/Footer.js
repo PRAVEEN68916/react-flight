@@ -4,7 +4,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 
 const Footer = () => {
   return (
-    <footer className="bg-dark text-light text-center py-4 bottom-0">
+    <footer className="bg-dark text-light text-center bottom-0 w-100">
       <div className="container">
         <h5 className="text-warning mb-3">✈️ SkyBook</h5>
         <p className="mb-2">

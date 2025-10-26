@@ -25,7 +25,7 @@ const About = () => {
           <h3 className="text-xl font-semibold text-white-600 mb-2">
             🌍 Why Choose Us?
           </h3>
-          <ul className="text-left text-white-700 space-y-2">
+          <ul className="text-left text-white-700 space-y-2  text-sm-start">
             <li>✅ Compare flights from multiple airlines instantly</li>
             <li>✅ Get real-time flight status and updates</li>
             <li>✅ Easy online booking and cancellation</li>

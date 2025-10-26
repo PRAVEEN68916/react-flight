@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./BookingFlight.css";
+import "./GlobalCSS/BookingFlight.css";
 
 const BookingFlight = () => {
   const [name, setName] = useState("");

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./Login.css";
+import "./GlobalCSS/Login.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");

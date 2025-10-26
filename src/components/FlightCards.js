@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./FlightCards.css";
+import "./GlobalCSS/FlightCards.css";
 
 const FlightCards = () => {
   const flights = [
@@ -12,7 +12,6 @@ const FlightCards = () => {
       time: "08:00 AM - 10:15 AM",
       duration: "2h 15m",
       price: "₹4,999",
-      logo: "https://upload.wikimedia.org/wikipedia/en/thumb/0/0e/Air_India_Logo.svg/512px-Air_India_Logo.svg.png"
     },
     {
       id: 2,
@@ -22,7 +21,6 @@ const FlightCards = () => {
       time: "09:30 AM - 10:45 AM",
       duration: "1h 15m",
       price: "₹2,999",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/8/88/IndiGo_logo.svg"
     },
     {
       id: 3,
@@ -32,7 +30,6 @@ const FlightCards = () => {
       time: "11:00 AM - 01:30 PM",
       duration: "2h 30m",
       price: "₹5,499",
-      logo: "https://upload.wikimedia.org/wikipedia/en/7/7e/Vistara_logo.svg"
     }
   ];
 
@@ -45,7 +42,7 @@ const FlightCards = () => {
             <div className="card flight-card shadow-lg">
               <div className="card-body">
                 <div className="d-flex align-items-center mb-3">
-                  <img src={flight.logo} alt="logo" className="airline-logo me-3" />
+
                   <h5 className="mb-0">{flight.airline}</h5>
                 </div>
                 <div className="d-flex justify-content-between align-items-center">

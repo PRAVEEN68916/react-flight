@@ -6,33 +6,31 @@ import About from './components/About';
 import Flights from './components/Flight';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './components/Login';
-import Signin from './components/Signin';
+import Signup from './components/Signup';
 import Contact from './components/Contact';
 import BookingFlight from './components/BookingFlight';
 import Footer from './components/Footer';
 
 
-
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Header />
-        <div style={{ paddingTop: "80px" }}></div>
+    <div className="app-layout d-flex flex-column min-vh-100">
+
+      <Header />
+      <div style={{ paddingTop: "80px" }} className='flex-grow-1'>
         <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/flights' element={<Flights />} />
-            <Route path='/login'element={<Login />} />
-            <Route path='/Signin' element={<Signin />} /> 
-            <Route path='/contact' element={<Contact />} />
-            <Route path='/bookingflight'element={<BookingFlight/>}/>
+          <Route path='/' element={<Home />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/flights' element={<Flights />} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/bookingflight' element={<BookingFlight />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/Signup' element={<Signup />} />
         </Routes>
-        <Footer />
-      </BrowserRouter>
-     
+      </div>
+      <Footer />
     </div>
-  
+
 
   );
 }

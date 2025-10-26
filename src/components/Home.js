@@ -1,42 +1,122 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import FlightCards from './FlightCards';  
+import FlightCards from './FlightCards';
 import "bootstrap/dist/css/bootstrap.min.css";
+import SkyCard from './SkyCard';
+import image from './ImageFolder/bg.jpeg';
+import image1 from './ImageFolder/flight.jpg';
+import image2 from './ImageFolder/flight1.jpg';
+import image3 from './ImageFolder/flight2.jpg';
+import Contact from './Contact';
 
 const Home = () => {
   const navigate = useNavigate();
   return (
     <>
-      <section style={{ padding: "3rem", color: "#fff", maxWidth: "900px", margin: "40px" }}>
-        <h1 style={{ marginTop: "70px",textAlign: "left",alignItems:"left",justifyContent:"left",paddingLeft:"-20%",fontWeight:"bold",fontFamily: "Times New Roman",fontSize:"4.5rem" }} >Welcome to SkyBook ✈️</h1>
-        <p style={{textAlign:"left", fontSize: "1.3rem", marginTop: "1rem", fontFamily: "Arial, sans-serif", color: "#e0e0e0" }}>
-          SkyBook makes booking your next flight fast, easy, and affordable.<br/> Find the best deals from trusted airlines worldwide.
-        </p>
-        <button onClick={() => navigate('/flights')}
+      <section
+        className="hero py-5"
+        style={{
+          backgroundImage: `url(${image3})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          color: "white",
+          position: "relative",
+          minHeight: "90vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "flex-start",
+        }}
+      >
+        <div
           style={{
-            padding: "0.75rem 1.5rem",
-            borderRadius: "25px",
-            border: "none",
-            backgroundColor: "#00eaff",
-            color: "#000",
-            fontWeight: "bold",
-            cursor: "pointer",
-            marginTop: "1rem",
-            boxShadow: "0 4px 15px rgba(0, 234, 255, 0.4)",
-            marginRight: "77%",
-            top: "50px"
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            backgroundColor: "rgba(0,0,0,0.6)",
+            zIndex: 1,
+          }}
+        ></div>
+
+        {/* Content container ensures all text/buttons sit above overlay and are aligned */}
+        <div
+          style={{
+            position: "relative",
+            zIndex: 2,
+            maxWidth: "100%",
+            padding: "6rem 5% 6rem 8%",
+            display: "flex",
+            flexDirection: "column",
+            gap: "1rem",
           }}
         >
-          Search Flights
-        </button>
-        <div style={{ marginTop: "3rem" }}>
-          <h2 style={{fontSize:"4rem"}}>Why Choose SkyBook?</h2>
-          <ul style={{ listStyleType: "none", paddingLeft: 0,fontSize:"1.3rem",alignItems:"left" }}>
-            <li>🛫 Best prices guaranteed</li>
-            <li>⏰ 24/7 customer support</li>
-            <li>📱 Easy mobile booking</li>
-            <li>✅ Secure and reliable  </li>
-          </ul>
+          <h1
+            style={{
+              margin: 0,
+              fontWeight: 700,
+              fontFamily: "'Times New Roman', serif",
+              fontSize: "4rem",
+              lineHeight: 1.05,
+              textAlign: "left",
+            }}
+          >
+            Welcome to SkyBook ✈️
+          </h1>
+
+          <p
+            style={{
+              margin: 0,
+              fontSize: "1.3rem",
+              color: "#e0e0e0",
+              textAlign: "left",
+            }}
+          >
+            SkyBook makes booking your next flight fast, easy, and affordable.
+            Find the best deals from trusted airlines worldwide.
+          </p>
+
+          <div>
+            <button
+              onClick={() => navigate("/flights")}
+              style={{
+                padding: "0.75rem 1.5rem",
+                borderRadius: "25px",
+                border: "none",
+                backgroundColor: "#00eaff",
+                color: "#000",
+                fontWeight: "700",
+                cursor: "pointer",
+                boxShadow: "0 4px 15px rgba(0, 234, 255, 0.4)",
+              }}
+            >
+              Search Flights
+            </button>
+          </div>
+
+          <div style={{
+            marginTop: "7rem", maxWidth: "100%", textAlign: "right", display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-end",
+          }} >
+            <h2 style={{ fontSize: "3.5rem", margin: "0 0 0.5rem 0" }}>
+              Why Choose SkyBook?
+            </h2>
+            <ul
+              style={{
+                listStyleType: "none",
+                paddingLeft: 0,
+                margin: 0,
+                fontSize: "1.3rem",
+                textAlign: "left",
+              }}
+            >
+              <li>🛫 Best prices guaranteed</li>
+              <li>⏰ 24/7 customer support</li>
+              <li>📱 Easy mobile booking</li>
+              <li>✅ Secure and reliable</li>
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -63,7 +143,7 @@ const Home = () => {
             <h3 className="text-xl font-semibold text-white-600 mb-2">
               🌍 Why Choose Us?
             </h3>
-            <ul className="text-left text-white-700 space-y-2">
+            <ul className="text-left text-white-700 space-y-2 text-sm-start">
               <li>✅ Compare flights from multiple airlines instantly</li>
               <li>✅ Get real-time flight status and updates</li>
               <li>✅ Easy online booking and cancellation</li>
@@ -74,7 +154,12 @@ const Home = () => {
       </section>
 
       <FlightCards />
-      
+
+      <SkyCard />
+
+      <Contact />
+
+
     </>
   );
 };

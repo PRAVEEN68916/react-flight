@@ -1,0 +1,71 @@
+/* Container Background */
+.sky-container {
+  background:transparent;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  padding: 50px;
+}
+
+/* Heading Style */
+.sky-heading {
+  color: white;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+}
+
+/* Card Style */
+.sky-card {
+  border-radius: 18px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  background: white;
+  transform: translateY(0);
+}
+
+.sky-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Zoom Effect */
+.sky-card img {
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.sky-card:hover img {
+  transform: scale(1.1);
+}
+
+/* Text & Button Styling */
+.sky-card .card-body {
+  padding: 1.5rem;
+}
+
+.sky-card .card-title {
+  color: #004aad;
+}
+
+.sky-card .card-text {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* Custom Button */
+.sky-btn {
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  color: white;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.sky-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+  background: linear-gradient(90deg, #00f2fe, #4facfe);
+}
