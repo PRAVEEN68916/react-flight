@@ -3,9 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import FlightCards from './FlightCards';
 import "bootstrap/dist/css/bootstrap.min.css";
 import SkyCard from './SkyCard';
-import image from './ImageFolder/bg.jpeg';
 import image1 from './ImageFolder/flight.jpg';
-import image2 from './ImageFolder/flight1.jpg';
 import image3 from './ImageFolder/flight2.jpg';
 import Contact from './Contact';
 
@@ -133,7 +131,7 @@ const Home = () => {
           alignItems: "center",
           justifyContent: "flex-start",
           padding: "10rem",
-          color: "#f1eeeeff",
+      
           maxWidth: "1600px",
           margin: "auto"
         }}>
