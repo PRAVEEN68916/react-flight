@@ -66,9 +66,9 @@ const Login = () => {
         <div className="text-center mt-3">
           <small className="text-secondary">
             Don’t have an account?{" "}
-            <a href="#" className="text-primary text-decoration-none fw-semibold">
+            <button  className="btn btn-primary w-20 py-2 fw-semibold">
               Sign Up
-            </a>
+            </button>
           </small>
         </div>
       </div>
