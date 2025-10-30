@@ -35,7 +35,7 @@ const Home = () => {
             width: "100%",
             height: "100%",
             // backgroundColor: "rgba(0,0,0,0.6)",
-            zIndex: 1,
+            zIndex: 0,
           }}
         ></div>
 
@@ -43,7 +43,7 @@ const Home = () => {
         <div
           style={{
             position: "relative",
-            zIndex: 2,
+            zIndex: 1,
             maxWidth: "100%",
             padding: "6rem 5% 6rem 8%",
             display: "flex",
@@ -59,6 +59,7 @@ const Home = () => {
               fontSize: "4rem",
               lineHeight: 1.05,
               textAlign: "left",
+              textShadow:'0 15px 15px'
             }}
           >
             Welcome to SkyBook ✈️
@@ -99,7 +100,7 @@ const Home = () => {
             flexDirection: "column",
             alignItems: "flex-end",
           }} >
-            <h2 style={{ fontSize: "3.5rem", margin: "0 0 0.5rem 0" }}>
+            <h2 style={{ fontSize: "3.5rem", margin: "0 0 0.5rem 0", textShadow:'0 15px 15px' }}>
               Why Choose SkyBook?
             </h2>
             <ul
@@ -122,7 +123,7 @@ const Home = () => {
 
       <section className="bg-whitepy-5 px-6 md:px-16 lg:px-32"
         style={{
-          backgroundImage: `url(${image2})`,
+          backgroundImage: `url(${image1})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           color: "white",
@@ -133,7 +134,7 @@ const Home = () => {
           justifyContent: "flex-start",
           padding: "10rem",
           color: "#f1eeeeff",
-          maxWidth: "1300px",
+          maxWidth: "1600px",
           margin: "auto"
         }}>
         <div
@@ -173,21 +174,25 @@ const Home = () => {
           </p>
 
           <div style={{
-            border: '2px solid black',
-            padding:'10px',         /* Adds space between the text and the border */
-            margin:'15px 0',
+            border: '3px solid gray bold',
+            padding: '10px',         /* Adds space between the text and the border */
+            margin: '15px 0',
+            width: '75%',
+            borderRadius: '10px',    /* Optional: adds rounded corners to the border */
           }}>
-            <h3 className="text-xl font-semibold text-white-600" style={{
+            <h3 className="text-xl font-semibold" style={{
               marginTop: '25px',
               fontSize: '60px',
+              textAlign: 'start',
+              color: 'aqua bold',
             }}>
-              🌍 Why Choose Us?
+              <u>🌍 Why Choose Us?</u>
             </h3>
-            <ul className="text-left text-white-700 space-y-2 text-sm-start">
-              <li>✅ Compare flights from multiple airlines instantly</li>
-              <li>✅ Get real-time flight status and updates</li>
-              <li>✅ Easy online booking and cancellation</li>
-              <li>✅ 24/7 customer support and travel assistance</li>
+            <ul className="text-left text-white-700 space-y-2 text-sm-start text-lg" style={{ fontSize: '22px', }}>
+              <li> Compare flights from multiple airlines instantly</li>
+              <li>Get real-time flight status and updates</li>
+              <li>Easy online booking and cancellation</li>
+              <li> 24/7 customer support and travel assistance</li>
             </ul>
           </div>
         </div>
