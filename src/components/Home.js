@@ -34,7 +34,7 @@ const Home = () => {
             left: 0,
             width: "100%",
             height: "100%",
-            backgroundColor: "rgba(0,0,0,0.6)",
+            // backgroundColor: "rgba(0,0,0,0.6)",
             zIndex: 1,
           }}
         ></div>
@@ -120,27 +120,67 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="bg-whitepy-5 px-6 md:px-16 lg:px-32" style={{ padding: "10rem", color: "#f1eeeeff", maxWidth: "900px", margin: "auto" }}>
+      <section className="bg-whitepy-5 px-6 md:px-16 lg:px-32"
+        style={{
+          backgroundImage: `url(${image2})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          color: "white",
+          position: "relative",
+          minHeight: "90vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "flex-start",
+          padding: "10rem",
+          color: "#f1eeeeff",
+          maxWidth: "1300px",
+          margin: "auto"
+        }}>
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            // backgroundColor: "rgba(0,0,0,0.6)",
+            zIndex: 1,
+          }}
+        ></div>
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-blue-700 mb-4 fs-1">
+          <h2 className="text-3xl font-bold text-blue-700 " style={{
+            fontFamily: '-moz-initial',
+            fontSize: '60px',
+            display: 'flex',
+            flexDirection: 'row',
+            textAlign: 'start',
+            marginBottom: '45px',
+          }}>
             ✈️ About Our Flight Service
           </h2>
-          <p className="text-gray-700 text-lg leading-relaxed mb-6">
+          <p className="text-gray-700 text-lg leading-relaxed mb-6" style={{ fontSize: '29px' }}>
             Welcome to <span className="font-semibold">SkyFly</span> — your
             one-stop solution for booking, managing, and tracking flights across
             the globe. Our platform helps travelers compare flight prices, view
             real-time schedules, and enjoy a smooth booking experience.
           </p>
 
-          <p className="text-white-700 text-lg leading-relaxed mb-6">
+          <p className="text-white-700 text-lg leading-relaxed mb-6" style={{ fontSize: '30px' }}>
             With user-friendly search options and live flight updates, SkyFly is
             designed to make air travel planning faster, smarter, and stress-free.
             Whether you’re a frequent flyer or planning your first trip, our goal
             is to make your journey as comfortable as possible.
           </p>
 
-          <div className="bg-blue-50 border border-blue-200 p-6 rounded-xl shadow-sm">
-            <h3 className="text-xl font-semibold text-white-600 mb-2">
+          <div style={{
+            border: '2px solid black',
+            padding:'10px',         /* Adds space between the text and the border */
+            margin:'15px 0',
+          }}>
+            <h3 className="text-xl font-semibold text-white-600" style={{
+              marginTop: '25px',
+              fontSize: '60px',
+            }}>
               🌍 Why Choose Us?
             </h3>
             <ul className="text-left text-white-700 space-y-2 text-sm-start">

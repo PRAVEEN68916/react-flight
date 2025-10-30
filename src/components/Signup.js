@@ -65,9 +65,9 @@ const Signup = () => {
         <div className="text-center mt-3">
           <small className="text-secondary">
             Don’t have an account?{" "}
-            <a href="#" className="text-primary text-decoration-none fw-semibold">
+            {/* <a href="#" className="text-primary text-decoration-none fw-semibold">
               Sign Up
-            </a>
+            </a> */}
           </small>
         </div>
       </div>
