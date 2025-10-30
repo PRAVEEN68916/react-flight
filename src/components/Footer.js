@@ -13,7 +13,6 @@ const Footer = () => {
 
         <div className="mb-3">
           <a  href="https://www.google.com/search?q=facebook&oq=facebo&gs_lcrp=EgZjaHJvbWUqFQgAEAAYQxiDARjjAhixAxiABBiKBTIVCAAQABhDGIMBGOMCGLEDGIAEGIoFMhgIARAuGEMYgwEYxwEYsQMY0QMYgAQYigUyDQgCEAAYkQIYgAQYigUyEwgDEAAYgwEYkQIYsQMYgAQYigUyEggEEAAYQxiDARixAxiABBiKBTIGCAUQRRg5MgwIBhAAGEMYgAQYigUyBggHEAUYQNIBCDMyNjNqMGo3qAIIsAIB8QWuQtCL_CszBw&sourceid=chrome&ie=UTF-8" className="text-light mx-2"><i className="bi bi-facebook"></i></a>
-          <a href="#" className="text-light mx-2"><i className="bi bi-twitter"></i></a>
           <a href="https://www.instagram.com/accounts/login/?hl=en" className="text-light mx-2"><i className="bi bi-instagram"></i></a>
         </div>
 

@@ -4,7 +4,7 @@ import "./GlobalCSS/BookingFlight.css";
 
 const BookingFlight = () => {
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [email, ] = useState("");
   const [mobile, setMobile] = useState("");
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
