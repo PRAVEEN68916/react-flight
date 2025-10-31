@@ -111,7 +111,6 @@ const Footer = () => {
                 {['Facebook', 'Instagram', 'Twitter', 'LinkedIn'].map(social => (
                   <a
                     key={social}
-                    href="#"
                     style={{
                       color: '#ccc',
                       fontSize: '1.3rem',
@@ -160,7 +159,6 @@ const Footer = () => {
             </p>
             <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
               <a 
-                href="#" 
                 style={{ color: '#aaa', textDecoration: 'none' }}
                 onMouseEnter={(e) => e.target.style.color = '#00eaff'}
                 onMouseLeave={(e) => e.target.style.color = '#aaa'}
@@ -168,7 +166,6 @@ const Footer = () => {
                 Privacy Policy
               </a>
               <a 
-                href="#" 
                 style={{ color: '#aaa', textDecoration: 'none' }}
                 onMouseEnter={(e) => e.target.style.color = '#00eaff'}
                 onMouseLeave={(e) => e.target.style.color = '#aaa'}
@@ -176,7 +173,6 @@ const Footer = () => {
                 Terms of Service
               </a>
               <a 
-                href="#" 
                 style={{ color: '#aaa', textDecoration: 'none' }}
                 onMouseEnter={(e) => e.target.style.color = '#00eaff'}
                 onMouseLeave={(e) => e.target.style.color = '#aaa'}
