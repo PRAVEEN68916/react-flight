@@ -33,7 +33,7 @@ const Signup = ({ setCurrentPage }) => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+      background: 'linear-gradient(45deg,black, #1a1a2e, #16213e, #0f3460)',
       padding: '6rem 1rem 2rem',
     }}>
       <div style={{

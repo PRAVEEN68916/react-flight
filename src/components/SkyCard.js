@@ -16,7 +16,7 @@ const cardData = [
 const SkyCard = () => {
   return (
     <div className="container py-5 sky-container">
-      <h2 className="text-center mb-5 fw-bold sky-heading ">
+      <h2 className="text-center mb-5 fw-bold text-info"> 
         ☁️ Sky Card Gallery ☁️
       </h2>
       <div className="row g-4">

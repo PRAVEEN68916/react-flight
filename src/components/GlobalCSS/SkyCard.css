@@ -21,6 +21,7 @@
   transition: all 0.4s ease;
   background: white;
   transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(13, 168, 207, 0.1);
 }
 
 .sky-card:hover {

@@ -27,7 +27,7 @@ const Home = () => {
           style={{
             position: 'absolute',
             inset: 0,
-            backgroundColor: 'rgba(0, 0, 0, 0.55)',
+            // backgroundColor: 'rgba(0, 0, 0, 0.55)',
             zIndex: 0,
           }}
         ></div>
@@ -44,7 +44,7 @@ const Home = () => {
             style={{
               fontFamily: "'Times New Roman', serif",
               fontSize: 'clamp(2rem, 6vw, 4rem)',
-              textShadow: '0 5px 10px rgba(0,0,0,0.5)',
+              textShadow: '0 5px 10px rgba(0,0,0,0.9)',
             }}
           >
             Welcome to SkyBook ✈️
@@ -78,7 +78,8 @@ const Home = () => {
             <h2
               style={{
                 fontSize: 'clamp(1.8rem, 5vw, 3rem)',
-                textShadow: '0 5px 10px rgba(0,0,0,0.5)',
+                textShadow: '0 5px 10px rgba(0,0,0,0.9)',
+                 fontSize: 'clamp(2rem, 6vw, 4rem)',
               }}
             >
               Why Choose SkyBook?

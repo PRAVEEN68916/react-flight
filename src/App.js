@@ -11,6 +11,7 @@ import BookingFlight from './components/BookingFlight';
 import Footer from './components/Footer';
 import React, { useState } from 'react';
 import { AuthProvider } from './components/AuthContext';
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 
 function App() {
