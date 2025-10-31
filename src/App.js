@@ -4,34 +4,34 @@ import Home from './components/Home';
 import Header from './components/Header';
 import About from './components/About';
 import Flights from './components/Flight';
-import {  Routes, Route } from 'react-router-dom';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Contact from './components/Contact';
 import BookingFlight from './components/BookingFlight';
 import Footer from './components/Footer';
+import React, { useState } from 'react';
+import { AuthProvider } from './components/AuthContext';
 
 
 function App() {
+  const [currentPage, setCurrentPage] = useState('home');
+
   return (
-    <div className="app-layout d-flex flex-column min-vh-100">
-
-      <Header />
-      <div style={{ paddingTop: "80px" }} className='flex-grow-1'>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/flights' element={<Flights />} />
-          <Route path='/contact' element={<Contact />} />
-          <Route path='/bookingflight' element={<BookingFlight />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/Signup' element={<Signup />} />
-        </Routes>
+    <AuthProvider>
+      <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: '#f5f5f5' }}>
+        <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
+        <div style={{ flex: 1 }}>
+          {currentPage === 'home' && <Home setCurrentPage={setCurrentPage} />}
+          {currentPage === 'about' && <About />}
+          {currentPage === 'flights' && <Flights />}
+          {currentPage === 'contact' && <Contact />}
+          {currentPage === 'bookingflight' && <BookingFlight setCurrentPage={setCurrentPage} />}
+          {currentPage === 'login' && <Login setCurrentPage={setCurrentPage} />}
+          {currentPage === 'signup' && <Signup setCurrentPage={setCurrentPage} />}
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
-
-
+    </AuthProvider>
   );
 }
 

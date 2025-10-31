@@ -1,166 +1,240 @@
-import React, { useState } from "react";
-
-// Simple mock search function. Replace with a real API call as needed.
-function fetchMockFlights({ from, to, departDate, returnDate, passengers }) {
-  return new Promise((resolve, reject) => {
-    // basic validation to simulate server-side check
-    if (!from || !to || !departDate) {
-      return setTimeout(() => reject(new Error("Missing required fields")), 500);
-    }
-
-    setTimeout(() => {
-      const flights = [];
-      for (let i = 1; i <= 5; i++) {
-        flights.push({
-          id: `FL-${Date.now()}-${i}`,
-          airline: ["SkyWay", "AeroFast", "Nimbus"][i % 3],
-          price: (100 + i * 50) * passengers,
-          depart: `${departDate}T0${7 + i}:00`,
-          arrive: `${departDate}T1${0 + i}:30`,
-          duration: `${2 + i}h ${15 + i}m`,
-          from,
-          to,
-        });
-      }
-      resolve(flights);
-    }, 900);
-  });
-}
+import React, { useState } from 'react';
 
 const Flights = () => {
-  const [form, setForm] = useState({
-    from: "",
-    to: "",
-    departDate: "",
-    returnDate: "",
-    passengers: 1,
+  const [form, setForm] = useState({ 
+    from: '', 
+    to: '', 
+    date: '', 
+    passengers: 1 
   });
-
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
   const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {
-    const value = e.target.type === "number" ? Number(e.target.value) : e.target.value;
-    setForm({ ...form, [e.target.name]: value });
-  };
-
-  const handleSubmit = async (e) => {
+  const handleSearch = (e) => {
     e.preventDefault();
-    setError(null);
-    setResults([]);
-
-    // basic validation
-    if (!form.from || !form.to || !form.departDate) {
-      setError("Please fill in From, To and Depart Date.");
-      return;
-    }
-
     setLoading(true);
-    try {
-      // Replace fetchMockFlights with a real fetch to a flights API if you have one
-      const flights = await fetchMockFlights(form);
-      setResults(flights);
-    } catch (err) {
-      setError(err.message || "Failed to fetch flights");
-    } finally {
+    
+    // Simulate API call
+    setTimeout(() => {
+      const mockFlights = Array.from({ length: 5 }, (_, i) => ({
+        id: i,
+        airline: ['SkyWay Airlines', 'AeroFast', 'Nimbus Air', 'CloudJet', 'Horizon Airways'][i % 5],
+        price: (100 + i * 50) * form.passengers,
+        departTime: `${7 + i}:${i === 0 ? '00' : i * 15} AM`,
+        arriveTime: `${9 + i}:${i === 0 ? '30' : (i * 15) + 30} AM`,
+        duration: `${2 + Math.floor(i / 2)}h ${30 + (i % 2) * 15}m`,
+        from: form.from,
+        to: form.to,
+        stops: i % 3 === 0 ? 'Non-stop' : `${i % 2} Stop${i % 2 > 1 ? 's' : ''}`,
+      }));
+      setResults(mockFlights);
       setLoading(false);
-    }
+    }, 1000);
   };
 
   return (
-    <section style={{ padding: "3rem", color: "#222", maxWidth: "900px", margin: "2rem auto", background: "#fff", borderRadius: 8 }}>
-      <h1 style={{ marginBottom: "1rem" }}>Search Flights</h1>
-
-      <form onSubmit={handleSubmit} style={{ display: "flex", flexWrap: "wrap", gap: "1rem", alignItems: "center" }}>
+    <div style={{
+      marginTop: '100px',
+      padding: '2rem',
+      maxWidth: '1100px',
+      margin: '100px auto',
+      minHeight: '70vh',
+    }}>
+      <h2 style={{ 
+        color: '#667eea', 
+        marginBottom: '2rem', 
+        textAlign: 'center',
+        fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
+      }}>
+        ✈️ Search Flights
+      </h2>
+      
+      {/* Search Form */}
+      <form 
+        onSubmit={handleSearch} 
+        style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', 
+          gap: '1rem', 
+          marginBottom: '2rem',
+          background: 'white',
+          padding: '2rem',
+          borderRadius: '15px',
+          boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+        }}
+      >
         <input
           type="text"
-          name="from"
-          placeholder="From"
+          placeholder="From (e.g., NYC)"
           value={form.from}
-          onChange={handleChange}
+          onChange={(e) => setForm({ ...form, from: e.target.value })}
           required
-          style={{ padding: "0.5rem", borderRadius: "5px", border: "1px solid #ddd", flex: "1 1 150px" }}
+          style={{ 
+            padding: '0.75rem', 
+            borderRadius: '10px', 
+            border: '1px solid #ddd',
+            fontSize: '1rem',
+          }}
         />
         <input
           type="text"
-          name="to"
-          placeholder="To"
+          placeholder="To (e.g., LAX)"
           value={form.to}
-          onChange={handleChange}
+          onChange={(e) => setForm({ ...form, to: e.target.value })}
           required
-          style={{ padding: "0.5rem", borderRadius: "5px", border: "1px solid #ddd", flex: "1 1 150px" }}
+          style={{ 
+            padding: '0.75rem', 
+            borderRadius: '10px', 
+            border: '1px solid #ddd',
+            fontSize: '1rem',
+          }}
         />
         <input
           type="date"
-          name="departDate"
-          value={form.departDate}
-          onChange={handleChange}
+          value={form.date}
+          onChange={(e) => setForm({ ...form, date: e.target.value })}
           required
-          style={{ padding: "0.5rem", borderRadius: "5px", border: "1px solid #ddd" }}
-        />
-        <input
-          type="date"
-          name="returnDate"
-          value={form.returnDate}
-          onChange={handleChange}
-          style={{ padding: "0.5rem", borderRadius: "5px", border: "1px solid #ddd" }}
+          min={new Date().toISOString().split('T')[0]}
+          style={{ 
+            padding: '0.75rem', 
+            borderRadius: '10px', 
+            border: '1px solid #ddd',
+            fontSize: '1rem',
+          }}
         />
         <input
           type="number"
-          name="passengers"
+          placeholder="Passengers"
           min="1"
           max="10"
           value={form.passengers}
-          onChange={handleChange}
-          required
-          style={{ padding: "0.5rem", borderRadius: "5px", border: "1px solid #ddd", width: 120 }}
+          onChange={(e) => setForm({ ...form, passengers: Number(e.target.value) })}
+          style={{ 
+            padding: '0.75rem', 
+            borderRadius: '10px', 
+            border: '1px solid #ddd',
+            fontSize: '1rem',
+          }}
         />
-
         <button
           type="submit"
-          style={{
-            padding: "0.75rem 1.25rem",
-            borderRadius: "25px",
-            border: "none",
-            backgroundColor: "#00eaff",
-            color: "#000",
-            fontWeight: "bold",
-            cursor: "pointer",
-            boxShadow: "0 4px 15px rgba(0, 234, 255, 0.4)",
-          }}
           disabled={loading}
+          style={{
+            padding: '0.75rem',
+            background: loading ? '#ccc' : 'linear-gradient(90deg, #667eea, #764ba2)',
+            color: 'white',
+            border: 'none',
+            borderRadius: '10px',
+            fontWeight: 'bold',
+            cursor: loading ? 'not-allowed' : 'pointer',
+            fontSize: '1rem',
+            transition: 'transform 0.2s',
+          }}
+          onMouseEnter={(e) => !loading && (e.target.style.transform = 'scale(1.02)')}
+          onMouseLeave={(e) => !loading && (e.target.style.transform = 'scale(1)')}
         >
-          {loading ? "Searching..." : "Search"}
+          {loading ? 'Searching...' : 'Search Flights'}
         </button>
       </form>
 
-      {error && <div style={{ marginTop: "1rem", color: "#b00020" }}>{error}</div>}
+      {/* Loading State */}
+      {loading && (
+        <div style={{ textAlign: 'center', padding: '2rem', color: '#667eea' }}>
+          <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>✈️</div>
+          <p>Finding the best flights for you...</p>
+        </div>
+      )}
 
-      <div style={{ marginTop: "1.5rem" }}>
-        {results.length > 0 ? (
-          <div>
-            <h2>Results ({results.length})</h2>
-            <ul style={{ listStyle: "none", padding: 0 }}>
-              {results.map((f) => (
-                <li key={f.id} style={{ padding: "1rem", borderBottom: "1px solid #eee", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                  <div>
-                    <div style={{ fontWeight: "600" }}>{f.airline} — {f.from} → {f.to}</div>
-                    <div style={{ color: "#666", fontSize: 14 }}>{f.depart} • {f.arrive} • {f.duration}</div>
-                  </div>
-                  <div style={{ textAlign: "right" }}>
-                    <div style={{ fontWeight: 700 }}>${f.price.toFixed(2)}</div>
-                    <div style={{ fontSize: 12, color: "#666" }}>{form.passengers} passenger{form.passengers > 1 ? 's' : ''}</div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ) : (
-          <div style={{ marginTop: "1rem", color: "#666" }}>{!loading && "No results yet — fill the form and search."}</div>
-        )}
-      </div>
-    </section>
+      {/* Search Results */}
+      {!loading && results.length > 0 && (
+        <div>
+          <h3 style={{ 
+            color: '#333', 
+            marginBottom: '1.5rem',
+            fontSize: 'clamp(1.2rem, 3vw, 1.5rem)',
+          }}>
+            Available Flights ({results.length})
+          </h3>
+          {results.map(flight => (
+            <div key={flight.id} style={{
+              padding: '1.5rem',
+              background: 'white',
+              borderRadius: '15px',
+              marginBottom: '1rem',
+              boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+              gap: '1rem',
+              alignItems: 'center',
+              transition: 'transform 0.2s, box-shadow 0.2s',
+              cursor: 'pointer',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-3px)';
+              e.currentTarget.style.boxShadow = '0 8px 20px rgba(0,0,0,0.15)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 4px 10px rgba(0,0,0,0.1)';
+            }}
+            >
+              <div>
+                <h4 style={{ margin: '0 0 0.5rem 0', color: '#333' }}>{flight.airline}</h4>
+                <p style={{ margin: 0, color: '#666', fontSize: '0.9rem' }}>{flight.stops}</p>
+              </div>
+              <div>
+                <p style={{ margin: '0 0 0.25rem 0', fontWeight: 'bold', color: '#667eea' }}>
+                  {flight.from} → {flight.to}
+                </p>
+                <p style={{ margin: 0, color: '#666', fontSize: '0.9rem' }}>
+                  {flight.departTime} - {flight.arriveTime}
+                </p>
+                <p style={{ margin: 0, color: '#999', fontSize: '0.85rem' }}>
+                  Duration: {flight.duration}
+                </p>
+              </div>
+              <div style={{ textAlign: 'right' }}>
+                <div style={{ fontWeight: 'bold', fontSize: '1.5rem', color: '#667eea', marginBottom: '0.5rem' }}>
+                  ${flight.price}
+                </div>
+                <div style={{ fontSize: '0.85rem', color: '#666', marginBottom: '0.5rem' }}>
+                  {form.passengers} passenger{form.passengers > 1 ? 's' : ''}
+                </div>
+                <button style={{
+                  padding: '0.5rem 1.5rem',
+                  background: '#00eaff',
+                  border: 'none',
+                  borderRadius: '20px',
+                  fontWeight: 'bold',
+                  cursor: 'pointer',
+                  fontSize: '0.9rem',
+                  transition: 'transform 0.2s',
+                }}
+                onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
+                onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
+                >
+                  Book Now
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* No Results */}
+      {!loading && results.length === 0 && (
+        <div style={{
+          textAlign: 'center',
+          padding: '3rem',
+          background: 'white',
+          borderRadius: '15px',
+          color: '#666',
+        }}>
+          <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🔍</div>
+          <p>Enter your travel details and search for available flights</p>
+        </div>
+      )}
+    </div>
   );
 };
 

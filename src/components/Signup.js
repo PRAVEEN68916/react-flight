@@ -1,73 +1,165 @@
-import React, { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./GlobalCSS/Signup.css";
+import React, { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from './AuthContext';
 
-const Signup = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
+const Signup = ({ setCurrentPage }) => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [message, setMessage] = useState('');
+  const { signup } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (email === "admin@gmail.com" && password === "12345") {
-      setMessage("✅ Signup Successful! Welcome back.");
-    } else {
-      setMessage("❌ Invalid Email or Password!");
+    try {
+      signup(email, password, name);
+      setMessage('✅ Signup Successful! Redirecting to login...');
+      setTimeout(() => {
+        if (typeof setCurrentPage === 'function') {
+          setCurrentPage('login');
+        } else {
+          navigate('/login');
+        }
+      }, 1500);
+    } catch (error) {
+      setMessage('❌ ' + error.message);
     }
   };
 
   return (
-    <div className="Signup-wrapper d-flex align-items-center justify-content-center">
-      <div className="Signup-card shadow-lg p-4 border-0">
-        <h3 className="text-center mb-3 text-primary fw-bold">
-          Signup to Continue
+    <div style={{
+      minHeight: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+      padding: '6rem 1rem 2rem',
+    }}>
+      <div style={{
+        width: '100%',
+        maxWidth: '400px',
+        background: 'white',
+        borderRadius: '20px',
+        padding: '2rem',
+        boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
+      }}>
+        <h3 style={{ textAlign: 'center', color: '#f5576c', marginBottom: '1.5rem', fontWeight: 'bold' }}>
+          📝 Create Account
         </h3>
 
         <form onSubmit={handleSubmit}>
-          <div className="mb-3">
-            <label className="form-label fw-semibold">Email</label>
+          <div style={{ marginBottom: '1rem' }}>
+            <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '600' }}>Full Name</label>
+            <input
+              type="text"
+              placeholder="Enter your name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+              style={{
+                width: '100%',
+                padding: '0.75rem',
+                borderRadius: '10px',
+                border: '1px solid #ddd',
+                fontSize: '1rem',
+                boxSizing: 'border-box',
+              }}
+            />
+          </div>
+
+          <div style={{ marginBottom: '1rem' }}>
+            <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '600' }}>Email</label>
             <input
               type="email"
-              className="form-control"
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              style={{
+                width: '100%',
+                padding: '0.75rem',
+                borderRadius: '10px',
+                border: '1px solid #ddd',
+                fontSize: '1rem',
+                boxSizing: 'border-box',
+              }}
             />
           </div>
 
-          <div className="mb-3">
-            <label className="form-label fw-semibold">Password</label>
+          <div style={{ marginBottom: '1rem' }}>
+            <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '600' }}>Password</label>
             <input
               type="password"
-              className="form-control"
-              placeholder="Enter your password"
+              placeholder="Create a password (min 6 characters)"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              minLength="6"
+              style={{
+                width: '100%',
+                padding: '0.75rem',
+                borderRadius: '10px',
+                border: '1px solid #ddd',
+                fontSize: '1rem',
+                boxSizing: 'border-box',
+              }}
             />
           </div>
 
-          <button type="submit" className="btn btn-primary w-100 py-2 fw-semibold">
-            Signup
+          <button
+            type="submit"
+            style={{
+              width: '100%',
+              padding: '0.75rem',
+              background: 'linear-gradient(90deg, #f093fb, #f5576c)',
+              color: 'white',
+              border: 'none',
+              borderRadius: '10px',
+              fontSize: '1rem',
+              fontWeight: 'bold',
+              cursor: 'pointer',
+              transition: 'transform 0.2s',
+            }}
+            onMouseEnter={(e) => e.target.style.transform = 'scale(1.02)'}
+            onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
+          >
+            Sign Up
           </button>
         </form>
 
         {message && (
-          <div
-            className={`alert mt-3 ${message.includes("Successful") ? "alert-success" : "alert-danger"
-              } text-center`}
-          >
+          <div style={{
+            marginTop: '1rem',
+            padding: '0.75rem',
+            borderRadius: '10px',
+            textAlign: 'center',
+            background: message.includes('Successful') ? '#d4edda' : '#f8d7da',
+            color: message.includes('Successful') ? '#155724' : '#721c24',
+          }}>
             {message}
           </div>
         )}
 
-        <div className="text-center mt-3">
-          <small className="text-secondary">
-            Don’t have an account?{" "}
-            {/* <a href="#" className="text-primary text-decoration-none fw-semibold">
-              Sign Up
-            </a> */}
+        <div style={{ textAlign: 'center', marginTop: '1rem' }}>
+          <small>
+            Already have an account?{' '}
+            <button
+              onClick={() => {
+                if (typeof setCurrentPage === 'function') setCurrentPage('login');
+                else navigate('/login');
+              }}
+              style={{
+                background: 'none',
+                border: 'none',
+                color: '#f5576c',
+                fontWeight: 'bold',
+                cursor: 'pointer',
+                textDecoration: 'underline',
+              }}
+            >
+              Login
+            </button>
           </small>
         </div>
       </div>

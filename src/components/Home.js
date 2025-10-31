@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import FlightCards from './FlightCards';
-import "bootstrap/dist/css/bootstrap.min.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import SkyCard from './SkyCard';
 import image1 from './ImageFolder/flight.jpg';
 import image3 from './ImageFolder/flight2.jpg';
@@ -9,55 +9,42 @@ import Contact from './Contact';
 
 const Home = () => {
   const navigate = useNavigate();
+
   return (
     <>
+      {/* ===== HERO SECTION ===== */}
       <section
-        className="hero py-5"
+        className="hero text-white d-flex align-items-center"
         style={{
           backgroundImage: `url(${image3})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          color: "white",
-          position: "relative",
-          minHeight: "90vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "flex-start",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          minHeight: '90vh',
+          position: 'relative',
         }}
       >
         <div
           style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            // backgroundColor: "rgba(0,0,0,0.6)",
+            position: 'absolute',
+            inset: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.55)',
             zIndex: 0,
           }}
         ></div>
 
-        {/* Content container ensures all text/buttons sit above overlay and are aligned */}
         <div
+          className="container position-relative z-1 text-start"
           style={{
-            position: "relative",
-            zIndex: 1,
-            maxWidth: "100%",
-            padding: "6rem 5% 6rem 8%",
-            display: "flex",
-            flexDirection: "column",
-            gap: "1rem",
+            maxWidth: '900px',
+            padding: '4rem 1rem',
           }}
         >
           <h1
+            className="fw-bold mb-3"
             style={{
-              margin: 0,
-              fontWeight: 700,
               fontFamily: "'Times New Roman', serif",
-              fontSize: "4rem",
-              lineHeight: 1.05,
-              textAlign: "left",
-              textShadow:'0 15px 15px'
+              fontSize: 'clamp(2rem, 6vw, 4rem)',
+              textShadow: '0 5px 10px rgba(0,0,0,0.5)',
             }}
           >
             Welcome to SkyBook ✈️
@@ -65,49 +52,44 @@ const Home = () => {
 
           <p
             style={{
-              margin: 0,
-              fontSize: "1.3rem",
-              color: "#e0e0e0",
-              textAlign: "left",
+              fontSize: 'clamp(1rem, 2vw, 1.3rem)',
+              color: '#e0e0e0',
+              marginBottom: '1.5rem',
             }}
           >
             SkyBook makes booking your next flight fast, easy, and affordable.
             Find the best deals from trusted airlines worldwide.
           </p>
 
-          <div>
-            <button
-              onClick={() => navigate("/flights")}
+          <button
+            onClick={() => navigate('/flights')}
+            className="btn btn-info fw-bold text-dark px-4 py-2 shadow-sm"
+            style={{ borderRadius: '25px' }}
+          >
+            Search Flights
+          </button>
+
+          <div
+            className="mt-5 pt-4 text-md-end text-center"
+            style={{
+              color: 'white',
+            }}
+          >
+            <h2
               style={{
-                padding: "0.75rem 1.5rem",
-                borderRadius: "25px",
-                border: "none",
-                backgroundColor: "#00eaff",
-                color: "#000",
-                fontWeight: "700",
-                cursor: "pointer",
-                boxShadow: "0 4px 15px rgba(0, 234, 255, 0.4)",
+                fontSize: 'clamp(1.8rem, 5vw, 3rem)',
+                textShadow: '0 5px 10px rgba(0,0,0,0.5)',
               }}
             >
-              Search Flights
-            </button>
-          </div>
-
-          <div style={{
-            marginTop: "7rem", maxWidth: "100%", textAlign: "right", display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-end",
-          }} >
-            <h2 style={{ fontSize: "3.5rem", margin: "0 0 0.5rem 0", textShadow:'0 15px 15px' }}>
               Why Choose SkyBook?
             </h2>
             <ul
+              className="list-unstyled mt-3"
               style={{
-                listStyleType: "none",
-                paddingLeft: 0,
-                margin: 0,
-                fontSize: "1.3rem",
-                textAlign: "left",
+                fontSize: 'clamp(1rem, 2vw, 1.2rem)',
+                textAlign: 'left',
+                margin: '0 auto',
+                maxWidth: '400px',
               }}
             >
               <li>🛫 Best prices guaranteed</li>
@@ -119,92 +101,106 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="bg-whitepy-5 px-6 md:px-16 lg:px-32"
+      {/* ===== ABOUT SECTION ===== */}
+      <section
+        className="text-white py-5"
         style={{
           backgroundImage: `url(${image1})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          color: "white",
-          position: "relative",
-          minHeight: "90vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "flex-start",
-          padding: "10rem",
-      
-          maxWidth: "1600px",
-          margin: "auto"
-        }}>
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          position: 'relative',
+        }}
+      >
         <div
           style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            // backgroundColor: "rgba(0,0,0,0.6)",
-            zIndex: 1,
+            position: 'absolute',
+            inset: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.55)',
+            zIndex: 0,
           }}
         ></div>
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-blue-700 " style={{
-            fontFamily: '-moz-initial',
-            fontSize: '60px',
-            display: 'flex',
-            flexDirection: 'row',
-            textAlign: 'start',
-            marginBottom: '45px',
-          }}>
-            ✈️ About Our Flight Service
-          </h2>
-          <p className="text-gray-700 text-lg leading-relaxed mb-6" style={{ fontSize: '29px' }}>
-            Welcome to <span className="font-semibold">SkyFly</span> — your
-            one-stop solution for booking, managing, and tracking flights across
-            the globe. Our platform helps travelers compare flight prices, view
-            real-time schedules, and enjoy a smooth booking experience.
-          </p>
 
-          <p className="text-white-700 text-lg leading-relaxed mb-6" style={{ fontSize: '30px' }}>
-            With user-friendly search options and live flight updates, SkyFly is
-            designed to make air travel planning faster, smarter, and stress-free.
-            Whether you’re a frequent flyer or planning your first trip, our goal
-            is to make your journey as comfortable as possible.
-          </p>
+        <div className="container position-relative z-1 text-center text-md-start">
+          <div className="row justify-content-center">
+            <div className="col-lg-10">
+              <h2
+                className="fw-bold mb-4 text-info"
+                style={{
+                  fontSize: 'clamp(2rem, 5vw, 3.5rem)',
+                  fontFamily: "'Times New Roman', serif",
+                }}
+              >
+                ✈️ About Our Flight Service
+              </h2>
 
-          <div style={{
-            border: '3px solid gray bold',
-            padding: '10px',         /* Adds space between the text and the border */
-            margin: '15px 0',
-            width: '75%',
-            borderRadius: '10px',    /* Optional: adds rounded corners to the border */
-          }}>
-            <h3 className="text-xl font-semibold" style={{
-              marginTop: '25px',
-              fontSize: '60px',
-              textAlign: 'start',
-              color: 'aqua bold',
-            }}>
-              <u>🌍 Why Choose Us?</u>
-            </h3>
-            <ul className="text-left text-white-700 space-y-2 text-sm-start text-lg" style={{ fontSize: '22px', }}>
-              <li> Compare flights from multiple airlines instantly</li>
-              <li>Get real-time flight status and updates</li>
-              <li>Easy online booking and cancellation</li>
-              <li> 24/7 customer support and travel assistance</li>
-            </ul>
+              <p
+                style={{
+                  fontSize: 'clamp(1rem, 2vw, 1.3rem)',
+                  lineHeight: 1.6,
+                }}
+              >
+                Welcome to <span className="fw-semibold">SkyFly</span> — your
+                one-stop solution for booking, managing, and tracking flights
+                across the globe. Compare flight prices, view real-time
+                schedules, and enjoy a smooth booking experience.
+              </p>
+
+              <p
+                style={{
+                  fontSize: 'clamp(1rem, 2vw, 1.3rem)',
+                  lineHeight: 1.6,
+                }}
+              >
+                With user-friendly search options and live flight updates,
+                SkyFly is designed to make air travel planning faster, smarter,
+                and stress-free. Whether you’re a frequent flyer or planning
+                your first trip, we make your journey as comfortable as
+                possible.
+              </p>
+
+              <div
+                className="p-4 mt-4"
+                style={{
+                  border: '2px solid #00eaff',
+                  borderRadius: '10px',
+                  backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                }}
+              >
+                <h3
+                  className="fw-bold text-info mb-3"
+                  style={{
+                    fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
+                    textDecoration: 'underline',
+                  }}
+                >
+                  🌍 Why Choose Us?
+                </h3>
+                <ul
+                  className="list-unstyled"
+                  style={{
+                    fontSize: 'clamp(1rem, 2vw, 1.2rem)',
+                    textAlign: 'left',
+                    margin: '0 auto',
+                    maxWidth: '600px',
+                  }}
+                >
+                  <li>✅ Compare flights from multiple airlines instantly</li>
+                  <li>✅ Get real-time flight status and updates</li>
+                  <li>✅ Easy online booking and cancellation</li>
+                  <li>✅ 24/7 customer support and travel assistance</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* ===== COMPONENTS SECTION ===== */}
       <FlightCards />
-
       <SkyCard />
-
       <Contact />
-
-
     </>
   );
 };
 
-export default Home
+export default Home;
