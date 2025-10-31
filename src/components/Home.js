@@ -79,7 +79,6 @@ const Home = () => {
               style={{
                 fontSize: 'clamp(1.8rem, 5vw, 3rem)',
                 textShadow: '0 5px 10px rgba(0,0,0,0.9)',
-                 fontSize: 'clamp(2rem, 6vw, 4rem)',
               }}
             >
               Why Choose SkyBook?
