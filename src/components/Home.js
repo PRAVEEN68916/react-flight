@@ -196,7 +196,7 @@ const Home = () => {
       </section>
 
       {/* ===== COMPONENTS SECTION ===== */}
-      <FlightCards />
+      <FlightCards setCurrentPage={navigate} />
       <SkyCard />
       <Contact />
     </>

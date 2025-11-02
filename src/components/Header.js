@@ -1,32 +1,33 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "./AuthContext";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const Header = ({ currentPage, setCurrentPage }) => {
+const Header = () => {
   const { user, logout } = useContext(AuthContext);
-  const [menuOpen, setMenuOpen] = useState(false); // track toggler state
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLogout = () => {
     logout();
-    setCurrentPage("home");
+    navigate('/');
   };
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
-  const NavLink = ({ page, label }) => (
+  const NavLink = ({ to, label }) => (
     <li className="nav-item">
-      <button
-        className="nav-link btn"
-        onClick={() => {
-          setCurrentPage(page);
-          setMenuOpen(false); // close menu when clicking any link
-        }}
+      <Link
+        to={to}
+        className="nav-link"
+        onClick={() => setMenuOpen(false)}
         style={{
           background:
-            currentPage === page ? "rgba(0, 234, 255, 0.25)" : "transparent",
-          color: currentPage === page ? "#00eaff" : menuOpen ? "#000" : "white",
+            location.pathname === to ? "rgba(0, 234, 255, 0.25)" : "transparent",
+          color: location.pathname === to ? "#00eaff" : menuOpen ? "#000" : "white",
           border: "none",
           borderRadius: "10px",
           padding: "0.6rem 1.2rem",
@@ -34,10 +35,11 @@ const Header = ({ currentPage, setCurrentPage }) => {
           fontFamily: "Poppins, sans-serif",
           fontSize: "1rem",
           fontWeight: 500,
+          textDecoration: "none"
         }}
       >
         {label}
-      </button>
+      </Link>
     </li>
   );
 
@@ -64,7 +66,7 @@ const Header = ({ currentPage, setCurrentPage }) => {
           className="navbar-brand d-flex align-items-center"
           style={{ cursor: "pointer" }}
           onClick={() => {
-            setCurrentPage("home");
+            navigate('/');
             setMenuOpen(false);
           }}
         >
@@ -128,11 +130,11 @@ const Header = ({ currentPage, setCurrentPage }) => {
               padding: menuOpen ? "1rem" : "0",
             }}
           >
-            <NavLink page="home" label="Home" />
-            <NavLink page="about" label="About" />
-            <NavLink page="flights" label="Flights" />
-            <NavLink page="contact" label="Contact" />
-            <NavLink page="bookingflight" label="Book Flight" />
+            <NavLink to="/" label="Home" />
+            <NavLink to="/about" label="About" />
+            <NavLink to="/flights" label="Flights" />
+            <NavLink to="/contact" label="Contact" />
+            <NavLink to="/booking" label="Book Flight" />
 
             {user ? (
               <>
@@ -176,16 +178,16 @@ const Header = ({ currentPage, setCurrentPage }) => {
                 <li className="nav-item">
                   <button
                     onClick={() => {
-                      setCurrentPage("login");
+                      navigate('/login');
                       setMenuOpen(false);
                     }}
                     className="btn"
                     style={{
                       background:
-                        currentPage === "login"
+                        location.pathname === "/login"
                           ? "rgba(0, 234, 255, 0.25)"
                           : "transparent",
-                      color: currentPage === "login"
+                      color: location.pathname === "/login"
                         ? "#00eaff"
                         : menuOpen
                         ? "#000"
@@ -203,7 +205,7 @@ const Header = ({ currentPage, setCurrentPage }) => {
                 <li className="nav-item">
                   <button
                     onClick={() => {
-                      setCurrentPage("signup");
+                      navigate('/signup');
                       setMenuOpen(false);
                     }}
                     className="btn"

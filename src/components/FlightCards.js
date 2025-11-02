@@ -1,8 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./GlobalCSS/FlightCards.css";
 
-const FlightCards = ({ setCurrentPage, setSelectedFlight }) => {
+const FlightCards = ({ setSelectedFlight }) => {
+  const navigate = useNavigate();
   const flights = [
     { id: 1, airline: "Air India", from: "Delhi (DEL)", to: "Mumbai (BOM)", time: "08:00 AM - 10:15 AM", duration: "2h 15m", price: "₹4,999" },
     { id: 2, airline: "IndiGo", from: "Hyderabad (HYD)", to: "Bangalore (BLR)", time: "09:30 AM - 10:45 AM", duration: "1h 15m", price: "₹2,999" },
@@ -10,8 +12,12 @@ const FlightCards = ({ setCurrentPage, setSelectedFlight }) => {
   ];
 
   const handleBookNow = (flight) => {
-    setSelectedFlight(flight);
-    setCurrentPage("bookingflight");
+    if (setSelectedFlight) {
+      setSelectedFlight(flight);
+      navigate('/booking');
+    } else {
+      navigate('/flights');
+    }
   };
 
   return (
