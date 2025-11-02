@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { AuthContext } from './AuthContext';
 
 const BookingFlight = ({ setCurrentPage }) => {
   const { user } = useContext(AuthContext);
-  const navigate = useNavigate();
   const [form, setForm] = useState({ 
     name: '', 
     mobile: '', 
@@ -15,18 +13,13 @@ const BookingFlight = ({ setCurrentPage }) => {
   });
   const [booking, setBooking] = useState(null);
 
+  // ✅ Redirect to login if user is not logged in
   useEffect(() => {
     if (!user) {
-      // Prefer client-side navigation with react-router. If a parent passed
-      // a setCurrentPage callback (legacy), call it as a fallback.
       alert('Please login to book a flight');
-      if (typeof setCurrentPage === 'function') {
-        setCurrentPage('login');
-      } else {
-        navigate('/login');
-      }
+      setCurrentPage('login');
     }
-  }, [user, setCurrentPage, navigate]);
+  }, [user, setCurrentPage]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -71,117 +64,30 @@ const BookingFlight = ({ setCurrentPage }) => {
           borderRadius: '15px',
           boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
         }}>
-          <div style={{ gridColumn: 'span 1' }}>
-            <label style={{ 
-              display: 'block', 
-              marginBottom: '0.5rem', 
-              fontWeight: '600',
-              color: '#333',
-            }}>
-              Full Name *
-            </label>
-            <input
-              type="text"
-              placeholder="Enter your full name"
-              value={form.name}
-              onChange={(e) => setForm({ ...form, name: e.target.value })}
-              required
-              style={{ 
-                width: '100%',
-                padding: '0.75rem', 
-                borderRadius: '10px', 
-                border: '1px solid #ddd',
-                fontSize: '1rem',
-                boxSizing: 'border-box',
-              }}
-            />
-          </div>
-
-          <div style={{ gridColumn: 'span 1' }}>
-            <label style={{ 
-              display: 'block', 
-              marginBottom: '0.5rem', 
-              fontWeight: '600',
-              color: '#333',
-            }}>
-              Mobile Number *
-            </label>
-            <input
-              type="tel"
-              placeholder="+1 234 567 8900"
-              value={form.mobile}
-              onChange={(e) => setForm({ ...form, mobile: e.target.value })}
-              required
-              style={{ 
-                width: '100%',
-                padding: '0.75rem', 
-                borderRadius: '10px', 
-                border: '1px solid #ddd',
-                fontSize: '1rem',
-                boxSizing: 'border-box',
-              }}
-            />
-          </div>
+          {/* --- Input Fields --- */}
+          {[
+            { label: "Full Name *", name: "name", placeholder: "Enter your full name", type: "text" },
+            { label: "Mobile Number *", name: "mobile", placeholder: "+91 98765 43210", type: "tel" },
+            { label: "From *", name: "from", placeholder: "Departure City (e.g., DEL)", type: "text" },
+            { label: "To *", name: "to", placeholder: "Destination City (e.g., BOM)", type: "text" },
+          ].map((f) => (
+            <div key={f.name}>
+              <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '600', color: '#333' }}>
+                {f.label}
+              </label>
+              <input
+                type={f.type}
+                placeholder={f.placeholder}
+                value={form[f.name]}
+                onChange={(e) => setForm({ ...form, [f.name]: e.target.value })}
+                required
+                style={{ width: '100%', padding: '0.75rem', borderRadius: '10px', border: '1px solid #ddd' }}
+              />
+            </div>
+          ))}
 
           <div>
-            <label style={{ 
-              display: 'block', 
-              marginBottom: '0.5rem', 
-              fontWeight: '600',
-              color: '#333',
-            }}>
-              From *
-            </label>
-            <input
-              type="text"
-              placeholder="Departure City (e.g., NYC)"
-              value={form.from}
-              onChange={(e) => setForm({ ...form, from: e.target.value.toUpperCase() })}
-              required
-              style={{ 
-                width: '100%',
-                padding: '0.75rem', 
-                borderRadius: '10px', 
-                border: '1px solid #ddd',
-                fontSize: '1rem',
-                boxSizing: 'border-box',
-              }}
-            />
-          </div>
-
-          <div>
-            <label style={{ 
-              display: 'block', 
-              marginBottom: '0.5rem', 
-              fontWeight: '600',
-              color: '#333',
-            }}>
-              To *
-            </label>
-            <input
-              type="text"
-              placeholder="Destination City (e.g., LAX)"
-              value={form.to}
-              onChange={(e) => setForm({ ...form, to: e.target.value.toUpperCase() })}
-              required
-              style={{ 
-                width: '100%',
-                padding: '0.75rem', 
-                borderRadius: '10px', 
-                border: '1px solid #ddd',
-                fontSize: '1rem',
-                boxSizing: 'border-box',
-              }}
-            />
-          </div>
-
-          <div>
-            <label style={{ 
-              display: 'block', 
-              marginBottom: '0.5rem', 
-              fontWeight: '600',
-              color: '#333',
-            }}>
+            <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '600', color: '#333' }}>
               Travel Date *
             </label>
             <input
@@ -190,42 +96,22 @@ const BookingFlight = ({ setCurrentPage }) => {
               onChange={(e) => setForm({ ...form, date: e.target.value })}
               required
               min={new Date().toISOString().split('T')[0]}
-              style={{ 
-                width: '100%',
-                padding: '0.75rem', 
-                borderRadius: '10px', 
-                border: '1px solid #ddd',
-                fontSize: '1rem',
-                boxSizing: 'border-box',
-              }}
+              style={{ width: '100%', padding: '0.75rem', borderRadius: '10px', border: '1px solid #ddd' }}
             />
           </div>
 
           <div>
-            <label style={{ 
-              display: 'block', 
-              marginBottom: '0.5rem', 
-              fontWeight: '600',
-              color: '#333',
-            }}>
+            <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '600', color: '#333' }}>
               Passengers *
             </label>
             <input
               type="number"
-              placeholder="Number of passengers"
               min="1"
               max="15"
               value={form.passengers}
               onChange={(e) => setForm({ ...form, passengers: Number(e.target.value) })}
               required
-              style={{ 
-                width: '100%',
-                padding: '0.75rem', 
-                borderRadius: '10px', 
-                border: '1px solid #ddd',
-                fontSize: '1rem',
-                boxSizing: 'border-box',
-              }}
+              style={{ width: '100%', padding: '0.75rem', borderRadius: '10px', border: '1px solid #ddd' }}
             />
           </div>
 
@@ -242,17 +128,14 @@ const BookingFlight = ({ setCurrentPage }) => {
                 fontWeight: 'bold',
                 fontSize: '1.1rem',
                 cursor: 'pointer',
-                transition: 'transform 0.2s',
-                boxShadow: '0 4px 15px rgba(102, 126, 234, 0.4)',
               }}
-              onMouseEnter={(e) => e.target.style.transform = 'scale(1.02)'}
-              onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
             >
               Confirm Booking
             </button>
           </div>
         </form>
       ) : (
+        // ✅ Confirmation Card
         <div style={{
           background: 'white',
           padding: '2rem',
@@ -267,102 +150,36 @@ const BookingFlight = ({ setCurrentPage }) => {
             textAlign: 'center',
           }}>
             <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>✅</div>
-            <h3 style={{ color: '#155724', margin: '0 0 0.5rem 0' }}>Booking Confirmed!</h3>
-            <p style={{ color: '#155724', margin: 0 }}>Your ticket has been successfully booked</p>
+            <h3 style={{ color: '#155724' }}>Booking Confirmed!</h3>
+            <p style={{ color: '#155724' }}>Your ticket has been successfully booked</p>
           </div>
 
-          <div style={{
-            display: 'grid',
-            gap: '1rem',
-            padding: '1rem',
-            background: '#f8f9fa',
-            borderRadius: '10px',
-          }}>
-            <div style={{ 
-              padding: '0.75rem',
-              background: 'white',
-              borderRadius: '8px',
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}>
-              <strong style={{ color: '#667eea' }}>Ticket ID:</strong>
-              <span style={{ fontFamily: 'monospace', fontSize: '1.1rem' }}>{booking.ticketId}</span>
-            </div>
-
-            <div style={{ 
-              padding: '0.75rem',
-              background: 'white',
-              borderRadius: '8px',
-              display: 'flex',
-              justifyContent: 'space-between',
-            }}>
-              <strong style={{ color: '#667eea' }}>Passenger Name:</strong>
-              <span>{booking.name}</span>
-            </div>
-
-            <div style={{ 
-              padding: '0.75rem',
-              background: 'white',
-              borderRadius: '8px',
-              display: 'flex',
-              justifyContent: 'space-between',
-            }}>
-              <strong style={{ color: '#667eea' }}>Route:</strong>
-              <span>{booking.from} ✈️ {booking.to}</span>
-            </div>
-
-            <div style={{ 
-              padding: '0.75rem',
-              background: 'white',
-              borderRadius: '8px',
-              display: 'flex',
-              justifyContent: 'space-between',
-            }}>
-              <strong style={{ color: '#667eea' }}>Travel Date:</strong>
-              <span>{booking.date}</span>
-            </div>
-
-            <div style={{ 
-              padding: '0.75rem',
-              background: 'white',
-              borderRadius: '8px',
-              display: 'flex',
-              justifyContent: 'space-between',
-            }}>
-              <strong style={{ color: '#667eea' }}>Passengers:</strong>
-              <span>{booking.passengers} passenger{booking.passengers > 1 ? 's' : ''}</span>
-            </div>
-
-            <div style={{ 
-              padding: '0.75rem',
-              background: 'white',
-              borderRadius: '8px',
-              display: 'flex',
-              justifyContent: 'space-between',
-            }}>
-              <strong style={{ color: '#667eea' }}>Contact:</strong>
-              <span>{booking.mobile}</span>
-            </div>
-
-            <div style={{ 
-              padding: '0.75rem',
-              background: 'white',
-              borderRadius: '8px',
-              display: 'flex',
-              justifyContent: 'space-between',
-            }}>
-              <strong style={{ color: '#667eea' }}>Booking Date:</strong>
-              <span>{booking.bookingDate}</span>
-            </div>
+          <div style={{ background: '#f8f9fa', padding: '1rem', borderRadius: '10px' }}>
+            {Object.entries({
+              "Ticket ID": booking.ticketId,
+              "Passenger Name": booking.name,
+              "Route": `${booking.from} ✈️ ${booking.to}`,
+              "Travel Date": booking.date,
+              "Passengers": booking.passengers,
+              "Contact": booking.mobile,
+              "Booking Date": booking.bookingDate,
+            }).map(([label, value]) => (
+              <div key={label} style={{
+                background: 'white',
+                marginBottom: '0.75rem',
+                padding: '0.75rem 1rem',
+                borderRadius: '8px',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}>
+                <strong style={{ color: '#667eea' }}>{label}:</strong>
+                <span>{value}</span>
+              </div>
+            ))}
           </div>
 
-          <div style={{ 
-            marginTop: '2rem', 
-            display: 'flex', 
-            gap: '1rem',
-            flexWrap: 'wrap',
-          }}>
+          <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <button
               onClick={() => setBooking(null)}
               style={{
@@ -374,7 +191,6 @@ const BookingFlight = ({ setCurrentPage }) => {
                 borderRadius: '10px',
                 cursor: 'pointer',
                 fontWeight: 'bold',
-                fontSize: '1rem',
                 minWidth: '200px',
               }}
             >
@@ -391,7 +207,6 @@ const BookingFlight = ({ setCurrentPage }) => {
                 borderRadius: '10px',
                 cursor: 'pointer',
                 fontWeight: 'bold',
-                fontSize: '1rem',
                 minWidth: '200px',
               }}
             >

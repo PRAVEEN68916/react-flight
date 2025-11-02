@@ -1,4 +1,3 @@
-
 import './App.css';
 import Home from './components/Home';
 import Header from './components/Header';
@@ -14,9 +13,9 @@ import { AuthProvider } from './components/AuthContext';
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import FlightCards from './components/FlightCards';
 
-
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
+  const [selectedFlight, setSelectedFlight] = useState(null);
 
   return (
     <AuthProvider>
@@ -29,8 +28,12 @@ function App() {
           {currentPage === 'contact' && <Contact />}
           {currentPage === 'login' && <Login setCurrentPage={setCurrentPage} />}
           {currentPage === 'signup' && <Signup setCurrentPage={setCurrentPage} />}
-          {currentPage === 'bookingflight' && <BookingFlight setCurrentPage={setCurrentPage} />}
-
+          {currentPage === 'flightcards' && (
+            <FlightCards setCurrentPage={setCurrentPage} setSelectedFlight={setSelectedFlight} />
+          )}
+          {currentPage === 'bookingflight' && (
+            <BookingFlight selectedFlight={selectedFlight} setCurrentPage={setCurrentPage} />
+          )}
         </div>
         <Footer />
       </div>

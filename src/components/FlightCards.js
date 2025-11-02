@@ -1,11 +1,8 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./GlobalCSS/FlightCards.css";
 
-const FlightCards = () => {
-  const navigate = useNavigate();
-
+const FlightCards = ({ setCurrentPage, setSelectedFlight }) => {
   const flights = [
     { id: 1, airline: "Air India", from: "Delhi (DEL)", to: "Mumbai (BOM)", time: "08:00 AM - 10:15 AM", duration: "2h 15m", price: "₹4,999" },
     { id: 2, airline: "IndiGo", from: "Hyderabad (HYD)", to: "Bangalore (BLR)", time: "09:30 AM - 10:45 AM", duration: "1h 15m", price: "₹2,999" },
@@ -13,7 +10,8 @@ const FlightCards = () => {
   ];
 
   const handleBookNow = (flight) => {
-    navigate("/book-flight", { state: { flight } });
+    setSelectedFlight(flight);
+    setCurrentPage("bookingflight");
   };
 
   return (
@@ -24,9 +22,7 @@ const FlightCards = () => {
           <div key={flight.id} className="col-md-4 mb-4">
             <div className="card flight-card shadow-lg">
               <div className="card-body">
-                <div className="d-flex align-items-center mb-3">
-                  <h5 className="mb-0">{flight.airline}</h5>
-                </div>
+                <h5 className="mb-3">{flight.airline}</h5>
                 <div className="d-flex justify-content-between align-items-center">
                   <div>
                     <h6 className="fw-bold">{flight.from}</h6>
