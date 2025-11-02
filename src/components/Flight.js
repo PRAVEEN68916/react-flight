@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
 const Flights = () => {
-  const [form, setForm] = useState({ 
-    from: '', 
-    to: '', 
-    date: '', 
-    passengers: 1 
+  const [form, setForm] = useState({
+    from: '',
+    to: '',
+    date: '',
+    passengers: 1
   });
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -13,7 +13,7 @@ const Flights = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     setLoading(true);
-    
+
     // Simulate API call
     setTimeout(() => {
       const mockFlights = Array.from({ length: 5 }, (_, i) => ({
@@ -33,11 +33,13 @@ const Flights = () => {
   };
 
   return (
+     <div style={{background: 'linear-gradient(45deg,black, #1a1a2e, #16213e, #0f3460)'}}>
     <div style={{
       marginTop: '100px',
       padding: '2rem',
+      paddingTop:'7rem',
       maxWidth: '1100px',
-      margin: '100px auto',
+      margin: 'auto',
       minHeight: '70vh',
     }}>
       <h2 style={{ 
@@ -235,6 +237,8 @@ const Flights = () => {
         </div>
       )}
     </div>
+    </div>
+    
   );
 };
 

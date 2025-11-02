@@ -14,22 +14,24 @@ const Contact = () => {
   };
 
   return (
+  <div style={{background: 'linear-gradient(45deg,black, #1a1a2e, #16213e, #0f3460)'}}>
     <div style={{
       marginTop: '100px',
       padding: '2rem',
+      paddingTop:'7rem',
       maxWidth: '800px',
-      margin: '100px auto',
+      margin: ' auto',
       minHeight: '70vh',
     }}>
-      <h2 style={{ 
-        color: '#667eea', 
-        marginBottom: '1.5rem', 
+      <h2 style={{
+        color: '#667eea',
+        marginBottom: '1.5rem',
         textAlign: 'center',
         fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
       }}>
         📧 Contact Us
       </h2>
-      
+
       <p style={{
         textAlign: 'center',
         color: '#666',
@@ -40,19 +42,19 @@ const Contact = () => {
       </p>
 
       {!submitted ? (
-        <form onSubmit={handleSubmit} style={{ 
-          display: 'flex', 
-          flexDirection: 'column', 
+        <form onSubmit={handleSubmit} style={{
+          display: 'flex',
+          flexDirection: 'column',
           gap: '1rem',
           background: 'white',
           padding: '2rem',
           borderRadius: '15px',
-          boxShadow: '0 4px 20px rgba(0,0,0,0.1)',   
+          boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
         }}>
           <div>
-            <label style={{ 
-              display: 'block', 
-              marginBottom: '0.5rem', 
+            <label style={{
+              display: 'block',
+              marginBottom: '0.5rem',
               fontWeight: '600',
               color: '#333',
             }}>
@@ -64,11 +66,11 @@ const Contact = () => {
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
               required
-              style={{ 
+              style={{
                 width: '100%',
-                padding: '0.75rem', 
-                borderRadius: '10px', 
-                border: '1px solid #ddd', 
+                padding: '0.75rem',
+                borderRadius: '10px',
+                border: '1px solid #ddd',
                 fontSize: '1rem',
                 boxSizing: 'border-box',
               }}
@@ -76,9 +78,9 @@ const Contact = () => {
           </div>
 
           <div>
-            <label style={{ 
-              display: 'block', 
-              marginBottom: '0.5rem', 
+            <label style={{
+              display: 'block',
+              marginBottom: '0.5rem',
               fontWeight: '600',
               color: '#333',
             }}>
@@ -90,11 +92,11 @@ const Contact = () => {
               value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
               required
-              style={{ 
+              style={{
                 width: '100%',
-                padding: '0.75rem', 
-                borderRadius: '10px', 
-                border: '1px solid #ddd', 
+                padding: '0.75rem',
+                borderRadius: '10px',
+                border: '1px solid #ddd',
                 fontSize: '1rem',
                 boxSizing: 'border-box',
               }}
@@ -102,9 +104,9 @@ const Contact = () => {
           </div>
 
           <div>
-            <label style={{ 
-              display: 'block', 
-              marginBottom: '0.5rem', 
+            <label style={{
+              display: 'block',
+              marginBottom: '0.5rem',
               fontWeight: '600',
               color: '#333',
             }}>
@@ -116,11 +118,11 @@ const Contact = () => {
               value={form.subject}
               onChange={(e) => setForm({ ...form, subject: e.target.value })}
               required
-              style={{ 
+              style={{
                 width: '100%',
-                padding: '0.75rem', 
-                borderRadius: '10px', 
-                border: '1px solid #ddd', 
+                padding: '0.75rem',
+                borderRadius: '10px',
+                border: '1px solid #ddd',
                 fontSize: '1rem',
                 boxSizing: 'border-box',
               }}
@@ -128,9 +130,9 @@ const Contact = () => {
           </div>
 
           <div>
-            <label style={{ 
-              display: 'block', 
-              marginBottom: '0.5rem', 
+            <label style={{
+              display: 'block',
+              marginBottom: '0.5rem',
               fontWeight: '600',
               color: '#333',
             }}>
@@ -142,12 +144,12 @@ const Contact = () => {
               onChange={(e) => setForm({ ...form, message: e.target.value })}
               rows="6"
               required
-              style={{ 
+              style={{
                 width: '100%',
-                padding: '0.75rem', 
-                borderRadius: '10px', 
-                border: '1px solid #ddd', 
-                fontSize: '1rem', 
+                padding: '0.75rem',
+                borderRadius: '10px',
+                border: '1px solid #ddd',
+                fontSize: '1rem',
                 resize: 'vertical',
                 boxSizing: 'border-box',
                 fontFamily: 'inherit',
@@ -237,6 +239,7 @@ const Contact = () => {
         </div>
       </div>
     </div>
+  </div>
   );
 };
 

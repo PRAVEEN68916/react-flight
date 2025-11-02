@@ -12,6 +12,7 @@ import Footer from './components/Footer';
 import React, { useState } from 'react';
 import { AuthProvider } from './components/AuthContext';
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import FlightCards from './components/FlightCards';
 
 
 function App() {
@@ -26,9 +27,10 @@ function App() {
           {currentPage === 'about' && <About />}
           {currentPage === 'flights' && <Flights />}
           {currentPage === 'contact' && <Contact />}
-          {currentPage === 'bookingflight' && <BookingFlight setCurrentPage={setCurrentPage} />}
           {currentPage === 'login' && <Login setCurrentPage={setCurrentPage} />}
           {currentPage === 'signup' && <Signup setCurrentPage={setCurrentPage} />}
+          {currentPage === 'bookingflight' && <BookingFlight setCurrentPage={setCurrentPage} />}
+
         </div>
         <Footer />
       </div>

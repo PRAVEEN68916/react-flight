@@ -1,37 +1,20 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./GlobalCSS/FlightCards.css";
 
 const FlightCards = () => {
+  const navigate = useNavigate();
+
   const flights = [
-    {
-      id: 1,
-      airline: "Air India",
-      from: "Delhi (DEL)",
-      to: "Mumbai (BOM)",
-      time: "08:00 AM - 10:15 AM",
-      duration: "2h 15m",
-      price: "₹4,999",
-    },
-    {
-      id: 2,
-      airline: "IndiGo",
-      from: "Hyderabad (HYD)",
-      to: "Bangalore (BLR)",
-      time: "09:30 AM - 10:45 AM",
-      duration: "1h 15m",
-      price: "₹2,999",
-    },
-    {
-      id: 3,
-      airline: "Vistara",
-      from: "Chennai (MAA)",
-      to: "Delhi (DEL)",
-      time: "11:00 AM - 01:30 PM",
-      duration: "2h 30m",
-      price: "₹5,499",
-    }
+    { id: 1, airline: "Air India", from: "Delhi (DEL)", to: "Mumbai (BOM)", time: "08:00 AM - 10:15 AM", duration: "2h 15m", price: "₹4,999" },
+    { id: 2, airline: "IndiGo", from: "Hyderabad (HYD)", to: "Bangalore (BLR)", time: "09:30 AM - 10:45 AM", duration: "1h 15m", price: "₹2,999" },
+    { id: 3, airline: "Vistara", from: "Chennai (MAA)", to: "Delhi (DEL)", time: "11:00 AM - 01:30 PM", duration: "2h 30m", price: "₹5,499" },
   ];
+
+  const handleBookNow = (flight) => {
+    navigate("/book-flight", { state: { flight } });
+  };
 
   return (
     <div className="container mt-5">
@@ -42,7 +25,6 @@ const FlightCards = () => {
             <div className="card flight-card shadow-lg">
               <div className="card-body">
                 <div className="d-flex align-items-center mb-3">
-
                   <h5 className="mb-0">{flight.airline}</h5>
                 </div>
                 <div className="d-flex justify-content-between align-items-center">
@@ -62,7 +44,12 @@ const FlightCards = () => {
                 <hr />
                 <div className="d-flex justify-content-between align-items-center">
                   <span className="fw-bold text-success fs-5">{flight.price}</span>
-                  <button className="btn btn-primary rounded-pill">Book Now</button>
+                  <button
+                    className="btn btn-primary rounded-pill"
+                    onClick={() => handleBookNow(flight)}
+                  >
+                    Book Now
+                  </button>
                 </div>
               </div>
             </div>

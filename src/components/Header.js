@@ -51,7 +51,7 @@ const Header = ({ currentPage, setCurrentPage }) => {
     <nav
       className="navbar navbar-expand-lg fixed-top"
       style={{
-        backdropFilter: "blur(15px)",
+        backdropFilter: "blur(10px)",
         WebkitBackdropFilter: "blur(15px)",
         background: "rgba(25, 25, 45, 0.5)",
         borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
@@ -71,7 +71,7 @@ const Header = ({ currentPage, setCurrentPage }) => {
           <span
             style={{
               color: "aqua",
-              fontSize: "1.5rem",
+              fontSize: "3rem",
               fontWeight: "bold",
               marginLeft: "0.4rem",
             }}
@@ -81,7 +81,7 @@ const Header = ({ currentPage, setCurrentPage }) => {
           <span
             style={{
               color: "yellow",
-              fontSize: "1.5rem",
+              fontSize: "3rem",
               fontWeight: "bold",
               marginLeft: "0.1rem",
             }}
