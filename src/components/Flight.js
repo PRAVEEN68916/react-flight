@@ -37,7 +37,7 @@ const Flights = () => {
     <div style={{
       marginTop: '100px',
       padding: '2rem',
-      paddingTop:'7rem',
+      marginTop:'7rem',
       maxWidth: '1100px',
       margin: 'auto',
       minHeight: '70vh',
@@ -45,6 +45,7 @@ const Flights = () => {
       <h2 style={{ 
         color: '#667eea', 
         marginBottom: '2rem', 
+        marginTop:'7rem',
         textAlign: 'center',
         fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
       }}>

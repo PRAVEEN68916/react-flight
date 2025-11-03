@@ -21,7 +21,7 @@ const FlightCards = ({ setSelectedFlight }) => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-5 py-5">
       <h2 className="text-start mb-4 fw-bold text-info">Available Flights</h2>
       <div className="row">
         {flights.map((flight) => (

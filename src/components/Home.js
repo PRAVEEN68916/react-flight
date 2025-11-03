@@ -62,7 +62,7 @@ const Home = () => {
           </p>
 
           <button
-            onClick={() => navigate('/flights')}
+            onClick={() => navigate('/flight')}
             className="btn btn-info fw-bold text-dark px-4 py-2 shadow-sm"
             style={{ borderRadius: '25px' }}
           >
@@ -87,8 +87,8 @@ const Home = () => {
               className="list-unstyled mt-3"
               style={{
                 fontSize: 'clamp(1rem, 2vw, 1.2rem)',
-                textAlign: 'left',
-                margin: '0 auto',
+                textAlign: 'right',
+                marginLeft:'55%',
                 maxWidth: '400px',
               }}
             >

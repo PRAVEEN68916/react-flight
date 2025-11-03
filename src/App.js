@@ -1,4 +1,3 @@
-
 import './App.css';
 import Home from './components/Home';
 import Header from './components/Header';
@@ -12,7 +11,8 @@ import React, { useState } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import FlightCards from './components/FlightCards';
-
+import Flight from './components/Flight';
+import Explore from './components/Explore';
 
 function App() {
   const [selectedFlight, setSelectedFlight] = useState(null);
@@ -25,11 +25,14 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/flight" element={<Flight />} />
           <Route path="/flights" element={<FlightCards setSelectedFlight={setSelectedFlight} />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login navigate={navigate} />} />
           <Route path="/signup" element={<Signup navigate={navigate} />} />
           <Route path="/booking" element={<BookingFlight selectedFlight={selectedFlight} navigate={navigate} />} />
+          {/* include the :id param so /explore/1, /explore/2 match */}
+          <Route path="/explore/:id" element={<Explore />} />
         </Routes>
       </div>
       <Footer />

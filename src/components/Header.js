@@ -132,7 +132,7 @@ const Header = () => {
           >
             <NavLink to="/" label="Home" />
             <NavLink to="/about" label="About" />
-            <NavLink to="/flights" label="Flights" />
+            <NavLink to="/flight" label="Flights" />
             <NavLink to="/contact" label="Contact" />
             <NavLink to="/booking" label="Book Flight" />
 
