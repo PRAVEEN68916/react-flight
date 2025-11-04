@@ -54,7 +54,7 @@ const Footer = () => {
               {['Home', 'About Us', 'Flights', 'Contact'].map(link => (
                 <li key={link} style={{ marginBottom: '0.5rem' }}>
                   <a 
-                    href="https://www.facebook.com/" 
+                    href="/"
                     style={{ 
                       color: '#ccc', 
                       textDecoration: 'none',

@@ -35,9 +35,7 @@ const Flights = () => {
   return (
      <div style={{background: 'linear-gradient(45deg,black, #1a1a2e, #16213e, #0f3460)'}}>
     <div style={{
-      marginTop: '100px',
       padding: '2rem',
-      marginTop:'7rem',
       maxWidth: '1100px',
       margin: 'auto',
       minHeight: '70vh',
