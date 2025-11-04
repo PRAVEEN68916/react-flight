@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "./AuthContext";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import flightLogo from "./ImageFolder/image.png";
 
 const Header = () => {
   const { user, logout } = useContext(AuthContext);
@@ -45,9 +46,8 @@ const Header = () => {
 
   return (
     <nav
-      className={`navbar navbar-expand-lg fixed-top ${
-        menuOpen ? "bg-white" : ""
-      }`}
+      className={`navbar navbar-expand-lg fixed-top ${menuOpen ? "bg-white" : ""
+        }`}
       style={{
         backdropFilter: menuOpen ? "none" : "blur(10px)",
         WebkitBackdropFilter: menuOpen ? "none" : "blur(15px)",
@@ -70,7 +70,18 @@ const Header = () => {
             setMenuOpen(false);
           }}
         >
-          <span style={{ fontSize: "1.8rem" }}>✈️</span>
+          <span><img
+            src={flightLogo}
+            alt="Flight Logo"
+            style={{
+              width: "5rem",
+              height: "5rem",
+              marginTop: "1.5rem",
+              marginLeft: "-1rem",
+              objectFit: "contain",
+              animation: "spin 20s linear infinite",
+            }}
+          /></span>
           <span
             style={{
               color: menuOpen ? "#00bcd4" : "aqua",
@@ -116,9 +127,8 @@ const Header = () => {
 
         {/* ===== COLLAPSIBLE MENU ===== */}
         <div
-          className={`collapse navbar-collapse justify-content-end ${
-            menuOpen ? "show" : ""
-          }`}
+          className={`collapse navbar-collapse justify-content-end ${menuOpen ? "show" : ""
+            }`}
           id="navbarContent"
         >
           <ul
@@ -190,8 +200,8 @@ const Header = () => {
                       color: location.pathname === "/login"
                         ? "#00eaff"
                         : menuOpen
-                        ? "#000"
-                        : "white",
+                          ? "#000"
+                          : "white",
                       border: "none",
                       borderRadius: "10px",
                       padding: "0.6rem 1.2rem",
