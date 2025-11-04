@@ -1,0 +1,14 @@
+@keyframes floatGlow {
+  0% {
+    transform: translateY(0) scale(1);
+    filter: drop-shadow(0 0 10px #00e6ff);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.05);
+    filter: drop-shadow(0 0 20px #00ffff);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    filter: drop-shadow(0 0 10px #00e6ff);
+  }
+}
