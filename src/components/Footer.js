@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -51,20 +52,25 @@ const Footer = () => {
               padding: 0, 
               margin: 0,
             }}>
-              {['Home', 'About Us', 'Flights', 'Contact'].map(link => (
-                <li key={link} style={{ marginBottom: '0.5rem' }}>
-                  <a 
-                    href="/"
-                    style={{ 
-                      color: '#ccc', 
+              {[
+                { label: 'Home', to: '/' },
+                { label: 'About Us', to: '/about' },
+                { label: 'Flights', to: '/flight' },
+                { label: 'Contact', to: '/contact' },
+              ].map(({ label, to }) => (
+                <li key={label} style={{ marginBottom: '0.5rem' }}>
+                  <Link
+                    to={to}
+                    style={{
+                      color: '#ccc',
                       textDecoration: 'none',
                       transition: 'color 0.3s',
                     }}
-                    onMouseEnter={(e) => e.target.style.color = '#00eaff'}
-                    onMouseLeave={(e) => e.target.style.color = '#ccc'}
+                    onMouseEnter={(e) => e.currentTarget.style.color = '#00eaff'}
+                    onMouseLeave={(e) => e.currentTarget.style.color = '#ccc'}
                   >
-                    {link}
-                  </a>
+                    {label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -108,10 +114,17 @@ const Footer = () => {
               
               {/* Social Media Icons */}
               <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
-                {['Facebook', 'Instagram', 'Twitter', 'LinkedIn'].map(social => (
+                {[
+                  { name: 'Facebook', url: 'https://www.facebook.com/' },
+                  { name: 'Instagram', url: 'https://www.instagram.com/' },
+                  { name: 'Twitter', url: 'https://twitter.com/' },
+                  { name: 'LinkedIn', url: 'https://www.linkedin.com/' },
+                ].map(({ name, url }) => (
                   <a
-                    key={social}
-                    href="https://www.facebook.com/"
+                    key={name}
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     style={{
                       color: '#ccc',
                       fontSize: '1.3rem',
@@ -119,19 +132,19 @@ const Footer = () => {
                       textDecoration: 'none',
                     }}
                     onMouseEnter={(e) => {
-                      e.target.style.color = '#00eaff';
-                      e.target.style.transform = 'translateY(-3px)';
+                      e.currentTarget.style.color = '#00eaff';
+                      e.currentTarget.style.transform = 'translateY(-3px)';
                     }}
                     onMouseLeave={(e) => {
-                      e.target.style.color = '#ccc';
-                      e.target.style.transform = 'translateY(0)';
+                      e.currentTarget.style.color = '#ccc';
+                      e.currentTarget.style.transform = 'translateY(0)';
                     }}
-                    title={social}
+                    title={name}
                   >
-                    {social === 'Facebook' && '📘'}
-                    {social === 'Instagram' && '📷'}
-                    {social === 'Twitter' && '🐦'}
-                    {social === 'LinkedIn' && '💼'}
+                    {name === 'Facebook' && '📘'}
+                    {name === 'Instagram' && '📷'}
+                    {name === 'Twitter' && '🐦'}
+                    {name === 'LinkedIn' && '💼'}
                   </a>
                 ))}
               </div>
@@ -168,7 +181,7 @@ const Footer = () => {
                 Privacy Policy
               </a>
               <a 
-                href="https://www.facebook.com/" 
+                href="https://www.instagram.com/accounts/login/?hl=en" 
                 style={{ color: '#aaa', textDecoration: 'none' }}
                 onMouseEnter={(e) => e.target.style.color = '#00eaff'}
                 onMouseLeave={(e) => e.target.style.color = '#aaa'}
@@ -176,7 +189,7 @@ const Footer = () => {
                 Terms of Service
               </a>
               <a 
-                href="https://www.facebook.com/" 
+                href="https://x.com/?lang=en" 
                 style={{ color: '#aaa', textDecoration: 'none' }}
                 onMouseEnter={(e) => e.target.style.color = '#00eaff'}
                 onMouseLeave={(e) => e.target.style.color = '#aaa'}
