@@ -1,5 +1,5 @@
 // src/components/Explore.js
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 
 const flightDetails = {
@@ -135,6 +135,10 @@ const Explore = () => {
   const navigate = useNavigate();
   const details = flightDetails[id];
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
+
   const handleSelectRoute = (route) => {
     // Save selection to localStorage so BookingFlight can pick it up
     try {
@@ -161,7 +165,7 @@ const Explore = () => {
   }
 
   return (
-    <div className="container py-5">
+    <div className="container py-5 mt-5">
       <h2 className="text-center fw-bold text-primary mb-3">Flights to {details.state}</h2>
 
       <div className="mt-4 p-4 shadow-lg rounded bg-light">

@@ -6,6 +6,8 @@ import SkyCard from './SkyCard';
 import image1 from './ImageFolder/flight.jpg';
 import image3 from './ImageFolder/flight2.jpg';
 import Contact from './Contact';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+
 
 const Home = () => {
   const navigate = useNavigate();
@@ -198,7 +200,12 @@ const Home = () => {
       {/* ===== COMPONENTS SECTION ===== */}
       <FlightCards setCurrentPage={navigate} />
       <SkyCard />
-      <Contact />
+       <DotLottieReact style={{background: 'linear-gradient(45deg,black, #1a1a2e, #16213e, #0f3460)'}} 
+      src="https://lottie.host/2d1ca625-f4c1-41d3-9052-14cde7e0c3c4/0su7l1QkoY.lottie"
+      loop
+      autoplay
+    />
+    <Contact />
     </>
   );
 };
